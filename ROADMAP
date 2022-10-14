@@ -3,5 +3,12 @@
 * v1.0.0
 ** v0.1.0
 *** v0.0.1
-
+**** Must attach values to each node
+Maybe {user,visibility,note}
+**** TODO Follow turorial
+:LOGBOOK:
+CLOCK: [2022-10-14 ven. 11:19]--[2022-10-14 ven. 11:43] =>  0:24
+:END:
 https://blog.logrocket.com/how-to-build-a-blockchain-in-rust/
+
+- [ ] To App implementation
