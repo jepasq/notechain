@@ -7,9 +7,13 @@
 Maybe {user,visibility,note}
 **** TODO Follow turorial
 :LOGBOOK:
+CLOCK: [2022-10-17 lun. 12:52]--[2022-10-17 lun. 13:07] =>  0:15
 CLOCK: [2022-10-14 ven. 11:19]--[2022-10-14 ven. 11:43] =>  0:24
 :END:
 https://blog.logrocket.com/how-to-build-a-blockchain-in-rust/
 
 - [X] To App implementation
-- [ ] From =Blocks, blocks, blocks= header
+- [X] From =Blocks, blocks, blocks= header
+- [ ] =Which chain to use?= header
+- [ ] =Mining=
+- [ ] =Peer-to-peer basics= and more... 
