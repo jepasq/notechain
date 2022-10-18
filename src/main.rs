@@ -1,6 +1,8 @@
 use serde::{Serialize, Deserialize};
 
 use chrono::Utc;
+use sha2::Sha256;
+use sha2::Digest;
 
 use log::{warn, error};  // USES warn!, error! etc...
 
@@ -15,6 +17,19 @@ fn hash_to_binary_representation(hash: &[u8]) -> String {
         res.push_str(&format!("{:b}", c));
     }
     res
+}
+
+fn calculate_hash(id: u64, timestamp: i64, previous_hash: &str, data: &str, nonce: u64) -> Vec<u8> {
+    let data = serde_json::json!({
+        "id": id,
+        "previous_hash": previous_hash,
+        "data": data,
+        "timestamp": timestamp,
+        "nonce": nonce
+    });
+    let mut hasher = Sha256::new();
+    hasher.update(data.to_string().as_bytes());
+    hasher.finalize().as_slice().to_owned()
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
@@ -88,11 +103,49 @@ impl App {
             return false;
         }
         true
-    }    
+    }
+
+    fn is_chain_valid(&self, chain: &[Block]) -> bool {
+        for i in 0..chain.len() {
+            if i == 0 {
+                continue;
+            }
+            let first = chain.get(i - 1).expect("has to exist");
+            let second = chain.get(i).expect("has to exist");
+            if !self.is_block_valid(second, first) {
+                return false;
+            }
+        }
+        true
+    }
+
+    // We always choose the longest valid chain
+    fn choose_chain(&mut self, local: Vec<Block>, remote: Vec<Block>)
+		    -> Vec<Block> {
+        let is_local_valid = self.is_chain_valid(&local);
+        let is_remote_valid = self.is_chain_valid(&remote);
+
+        if is_local_valid && is_remote_valid {
+            if local.len() >= remote.len() {
+                local
+            } else {
+                remote
+            }
+        } else if is_remote_valid && !is_local_valid {
+            remote
+        } else if !is_remote_valid && is_local_valid {
+            local
+        } else {
+            panic!("local and remote chains are both invalid");
+        }
+    }
 }
 
 fn main() {
     let mut a = App::new();
     a.genesis();
     println!("App is {:?}!", a);
+
+//    println!("Is chain valid : {:?}!", a.is_chain_valid());
+
 }
