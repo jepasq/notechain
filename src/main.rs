@@ -4,7 +4,7 @@ use chrono::Utc;
 use sha2::Sha256;
 use sha2::Digest;
 
-use log::{warn, error};  // USES warn!, error! etc...
+use log::{info, warn, error};  // USES warn!, error! etc...
 
 const GENHASH:
     &str = "0000f816a87f806bb0073dcf026a64fb40c946b5abee2573702828694d5b4c43";
@@ -30,6 +30,29 @@ fn calculate_hash(id: u64, timestamp: i64, previous_hash: &str, data: &str, nonc
     let mut hasher = Sha256::new();
     hasher.update(data.to_string().as_bytes());
     hasher.finalize().as_slice().to_owned()
+}
+
+fn mine_block(id: u64, timestamp: i64, previous_hash: &str, data: &str) -> (u64, String) {
+    info!("mining block...");
+    let mut nonce = 0;
+
+    loop {
+        if nonce % 100000 == 0 {
+            info!("nonce: {}", nonce);
+        }
+        let hash = calculate_hash(id, timestamp, previous_hash, data, nonce);
+        let binary_hash = hash_to_binary_representation(&hash);
+        if binary_hash.starts_with(DIFFICULTY_PREFIX) {
+            info!(
+                "mined! nonce: {}, hash: {}, binary hash: {}",
+                nonce,
+                hex::encode(&hash),
+                binary_hash
+            );
+            return (nonce, hex::encode(hash));
+        }
+        nonce += 1;
+    }
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
@@ -137,6 +160,21 @@ impl App {
             local
         } else {
             panic!("local and remote chains are both invalid");
+        }
+    }
+}
+
+impl Block {
+    pub fn new(id: u64, previous_hash: String, data: String) -> Self {
+        let now = Utc::now();
+        let (nonce, hash) = mine_block(id, now.timestamp(), &previous_hash, &data);
+        Self {
+            id,
+            hash,
+            timestamp: now.timestamp(),
+            previous_hash,
+            data,
+            nonce,
         }
     }
 }

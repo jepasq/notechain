@@ -16,5 +16,5 @@ https://blog.logrocket.com/how-to-build-a-blockchain-in-rust/
 - [X] To App implementation
 - [X] From =Blocks, blocks, blocks= header
 - [X] =Which chain to use?= header
-- [ ] =Mining=
+- [X] =Mining=
 - [ ] =Peer-to-peer basics= and more... 
