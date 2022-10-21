@@ -7,6 +7,7 @@
 Maybe {user,visibility,note}
 **** TODO Follow tutorial
 :LOGBOOK:
+CLOCK: [2022-10-21 ven. 11:50]--[2022-10-21 ven. 11:56] =>  0:06
 CLOCK: [2022-10-19 mer. 11:55]--[2022-10-19 mer. 12:09] =>  0:14
 CLOCK: [2022-10-18 mar. 13:21]--[2022-10-18 mar. 13:30] =>  0:09
 CLOCK: [2022-10-17 lun. 12:52]--[2022-10-17 lun. 13:07] =>  0:15
@@ -19,7 +20,7 @@ https://blog.logrocket.com/how-to-build-a-blockchain-in-rust/
 - [X] =Which chain to use?= header
 - [X] =Mining=
 - [X] =Peer-to-peer basics=
-- [ ] =Handling incoming messages=
+- [X] =Handling incoming messages=
 - [ ] =Putting it all together=  
 - [ ] =Testing our Rust blockchain=
 - [ ] =Conclusion=  
