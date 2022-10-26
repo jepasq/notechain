@@ -5,7 +5,7 @@ pub static BLOCK_TOPIC: Lazy = Lazy::new(|| Topic::new("blocks"));
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ChainResponse {
-    pub blocks: Vec,
+    pub blocks: Vec<T>,
     pub receiver: String,
 }
 

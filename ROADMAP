@@ -5,8 +5,9 @@
 *** v0.0.1
 **** Must attach values to each node
 Maybe {user,visibility,note}
-**** TODO Follow tutorial
+**** TODO [fix_allTogether]Follow tutorial
 :LOGBOOK:
+CLOCK: [2022-10-26 mer. 13:25]--[2022-10-26 mer. 13:54] =>  0:29
 CLOCK: [2022-10-21 ven. 11:50]--[2022-10-21 ven. 11:56] =>  0:06
 CLOCK: [2022-10-19 mer. 11:55]--[2022-10-19 mer. 12:09] =>  0:14
 CLOCK: [2022-10-18 mar. 13:21]--[2022-10-18 mar. 13:30] =>  0:09
@@ -21,6 +22,8 @@ https://blog.logrocket.com/how-to-build-a-blockchain-in-rust/
 - [X] =Mining=
 - [X] =Peer-to-peer basics=
 - [X] =Handling incoming messages=
-- [ ] =Putting it all together=  
+- [ ] =Putting it all together=
+  30 previous error
+  13 previous error
 - [ ] =Testing our Rust blockchain=
 - [ ] =Conclusion=  
