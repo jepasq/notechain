@@ -7,6 +7,7 @@
 Maybe {user,visibility,note}
 **** TODO [fix_allTogether]Follow tutorial
 :LOGBOOK:
+CLOCK: [2022-10-28 ven. 12:38]--[2022-10-28 ven. 12:55] =>  0:17
 CLOCK: [2022-10-26 mer. 13:25]--[2022-10-26 mer. 13:54] =>  0:29
 CLOCK: [2022-10-21 ven. 11:50]--[2022-10-21 ven. 11:56] =>  0:06
 CLOCK: [2022-10-19 mer. 11:55]--[2022-10-19 mer. 12:09] =>  0:14
@@ -23,7 +24,7 @@ https://blog.logrocket.com/how-to-build-a-blockchain-in-rust/
 - [X] =Peer-to-peer basics=
 - [X] =Handling incoming messages=
 - [ ] =Putting it all together=
-  30 previous error
-  13 previous error
+  68 previous error
+  59 previous error
 - [ ] =Testing our Rust blockchain=
 - [ ] =Conclusion=  

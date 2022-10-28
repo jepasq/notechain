@@ -1,3 +1,5 @@
+use libp2p::Swarm;
+
 pub static KEYS: Lazy = Lazy::new(identity::Keypair::generate_ed25519);
 pub static PEER_ID: Lazy = Lazy::new(|| PeerId::from(KEYS.public()));
 pub static CHAIN_TOPIC: Lazy = Lazy::new(|| Topic::new("chains"));
@@ -77,14 +79,14 @@ impl NetworkBehaviourEventProcess<MdnsEvent> for AppBehaviour {
 impl NetworkBehaviourEventProcess for AppBehaviour {
     fn inject_event(&mut self, event: FloodsubEvent) {
         if let FloodsubEvent::Message(msg) = event {
-            if let Ok(resp) = serde_json::from_slice::(&msg.data) {
+            if let Ok(resp) = serde_json::from_slice(&msg.data) {
                 if resp.receiver == PEER_ID.to_string() {
                     info!("Response from {}:", msg.source);
                     resp.blocks.iter().for_each(|r| info!("{:?}", r));
 
                     self.app.blocks = self.app.choose_chain(self.app.blocks.clone(), resp.blocks);
                 }
-            } else if let Ok(resp) = serde_json::from_slice::(&msg.data) {
+            } else if let Ok(resp) = serde_json::from_slice(&msg.data) {
                 info!("sending local chain to {}", msg.source.to_string());
                 let peer_id = resp.from_peer_id;
                 if PEER_ID.to_string() == peer_id {
@@ -95,10 +97,54 @@ impl NetworkBehaviourEventProcess for AppBehaviour {
                         error!("error sending response via channel, {}", e);
                     }
                 }
-            } else if let Ok(block) = serde_json::from_slice::(&msg.data) {
+            } else if let Ok(block) = serde_json::from_slice(&msg.data) {
                 info!("received new block from {}", msg.source.to_string());
                 self.app.try_add_block(block);
             }
         }
+    }
+}
+
+pub fn get_list_peers(swarm: &Swarm) -> Vec {
+    info!("Discovered Peers:");
+    let nodes = swarm.behaviour().mdns.discovered_nodes();
+    let mut unique_peers = HashSet::new();
+    for peer in nodes {
+        unique_peers.insert(peer);
+    }
+    unique_peers.iter().map(|p| p.to_string()).collect()
+}
+
+pub fn handle_print_peers(swarm: &Swarm) {
+    let peers = get_list_peers(swarm);
+    peers.iter().for_each(|p| info!("{}", p));
+}
+
+pub fn handle_print_chain(swarm: &Swarm) {
+    info!("Local Blockchain:");
+    let pretty_json =
+        serde_json::to_string_pretty(&swarm.behaviour().app.blocks).expect("can jsonify blocks");
+    info!("{}", pretty_json);
+}
+
+pub fn handle_create_block(cmd: &str, swarm: &mut Swarm) {
+    if let Some(data) = cmd.strip_prefix("create b") {
+        let behaviour = swarm.behaviour_mut();
+        let latest_block = behaviour
+            .app
+            .blocks
+            .last()
+            .expect("there is at least one block");
+        let block = Block::new(
+            latest_block.id + 1,
+            latest_block.hash.clone(),
+            data.to_owned(),
+        );
+        let json = serde_json::to_string(&block).expect("can jsonify request");
+        behaviour.app.blocks.push(block);
+        info!("broadcasting new block");
+        behaviour
+            .floodsub
+            .publish(BLOCK_TOPIC.clone(), json.as_bytes());
     }
 }

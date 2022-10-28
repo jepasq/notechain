@@ -3,7 +3,8 @@ notechain - GPLv3 - A blochain-backed note taking application.
 === ChangeLog ===
 
 * v0.0.0-0 (14 Oct. 2022 - ???) SLOC ???
-- (6) Add AppBehaviour-related code
+- (7) Added get_list_peers copied code
+- Add AppBehaviour-related code
 - Added Mining tutorial section code
 - Add a couple of App-related function
 - Added new tutorial chapter code
