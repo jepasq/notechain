@@ -7,6 +7,7 @@
 Maybe {user,visibility,note}
 **** TODO [fix_allTogether]Follow tutorial
 :LOGBOOK:
+CLOCK: [2022-11-03 jeu. 13:52]--[2022-11-03 jeu. 14:09] =>  0:17
 CLOCK: [2022-10-28 ven. 12:38]--[2022-10-28 ven. 12:55] =>  0:17
 CLOCK: [2022-10-26 mer. 13:25]--[2022-10-26 mer. 13:54] =>  0:29
 CLOCK: [2022-10-21 ven. 11:50]--[2022-10-21 ven. 11:56] =>  0:06
@@ -26,5 +27,6 @@ https://blog.logrocket.com/how-to-build-a-blockchain-in-rust/
 - [ ] =Putting it all together=
   68 previous error
   59 previous error
+  - [ ] Try to move block in block.rs
 - [ ] =Testing our Rust blockchain=
 - [ ] =Conclusion=  

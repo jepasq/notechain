@@ -1,9 +1,12 @@
 use libp2p::Swarm;
+use std::collections::HashSet;
 
-pub static KEYS: Lazy = Lazy::new(identity::Keypair::generate_ed25519);
-pub static PEER_ID: Lazy = Lazy::new(|| PeerId::from(KEYS.public()));
-pub static CHAIN_TOPIC: Lazy = Lazy::new(|| Topic::new("chains"));
-pub static BLOCK_TOPIC: Lazy = Lazy::new(|| Topic::new("blocks"));
+use once_cell::sync::Lazy;
+
+pub static KEYS: Lazy<T> = Lazy::new(identity::Keypair::generate_ed25519);
+pub static PEER_ID: Lazy<T> = Lazy::new(|| PeerId::from(KEYS.public()));
+pub static CHAIN_TOPIC: Lazy<T> = Lazy::new(|| Topic::new("chains"));
+pub static BLOCK_TOPIC: Lazy<T> = Lazy::new(|| Topic::new("blocks"));
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ChainResponse {
