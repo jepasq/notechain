@@ -27,6 +27,8 @@ https://blog.logrocket.com/how-to-build-a-blockchain-in-rust/
 - [ ] =Putting it all together=
   68 previous error
   59 previous error
+  54 previous error
   - [ ] Try to move block in block.rs
+    but now, must prepend Block with block::
 - [ ] =Testing our Rust blockchain=
 - [ ] =Conclusion=  

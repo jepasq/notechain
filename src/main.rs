@@ -1,5 +1,3 @@
-use serde::{Serialize, Deserialize};
-
 use chrono::Utc;
 use sha2::Sha256;
 use sha2::Digest;
@@ -14,6 +12,9 @@ use libp2p::Swarm;
 use libp2p::identity::Keypair;
 
 mod p2p;
+mod block;
+
+use crate::block::Block;
 
 const GENHASH:
     &str = "0000f816a87f806bb0073dcf026a64fb40c946b5abee2573702828694d5b4c43";
@@ -62,16 +63,6 @@ fn mine_block(id: u64, timestamp: i64, previous_hash: &str, data: &str) -> (u64,
         }
         nonce += 1;
     }
-}
-
-#[derive(Serialize, Deserialize, Debug, Clone)]
-pub struct Block {
-    pub id: u64,
-    pub hash: String,
-    pub previous_hash: String,
-    pub timestamp: i64,
-    pub data: String,
-    pub nonce: u64,
 }
 
 #[derive(Debug)]
@@ -153,7 +144,7 @@ impl App {
 
     // We always choose the longest valid chain
     fn choose_chain(&mut self, local: Vec<Block>, remote: Vec<Block>)
-		    -> Vec<Block> {
+		    -> Vec<block::Block> {
         let is_local_valid = self.is_chain_valid(&local);
         let is_remote_valid = self.is_chain_valid(&remote);
 
@@ -169,21 +160,6 @@ impl App {
             local
         } else {
             panic!("local and remote chains are both invalid");
-        }
-    }
-}
-
-impl Block {
-    pub fn new(id: u64, previous_hash: String, data: String) -> Self {
-        let now = Utc::now();
-        let (nonce, hash) = mine_block(id, now.timestamp(), &previous_hash, &data);
-        Self {
-            id,
-            hash,
-            timestamp: now.timestamp(),
-            previous_hash,
-            data,
-            nonce,
         }
     }
 }
