@@ -7,6 +7,7 @@
 Maybe {user,visibility,note}
 **** TODO [fix_allTogether]Follow tutorial
 :LOGBOOK:
+CLOCK: [2022-11-07 lun. 17:08]--[2022-11-07 lun. 17:18] =>  0:10
 CLOCK: [2022-11-03 jeu. 13:52]--[2022-11-03 jeu. 14:09] =>  0:17
 CLOCK: [2022-10-28 ven. 12:38]--[2022-10-28 ven. 12:55] =>  0:17
 CLOCK: [2022-10-26 mer. 13:25]--[2022-10-26 mer. 13:54] =>  0:29
@@ -18,6 +19,8 @@ CLOCK: [2022-10-14 ven. 11:19]--[2022-10-14 ven. 11:43] =>  0:24
 :END:
 https://blog.logrocket.com/how-to-build-a-blockchain-in-rust/
 
+Final source code : https://github.com/zupzup/rust-blockchain-example
+
 - [X] To App implementation
 - [X] From =Blocks, blocks, blocks= header
 - [X] =Which chain to use?= header
@@ -28,6 +31,7 @@ https://blog.logrocket.com/how-to-build-a-blockchain-in-rust/
   68 previous error
   59 previous error
   54 previous error
+  35 previous errors
   - [ ] Try to move block in block.rs
     but now, must prepend Block with block::
 - [ ] =Testing our Rust blockchain=

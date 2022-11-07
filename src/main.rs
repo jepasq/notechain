@@ -11,15 +11,37 @@ use std::time::Duration;
 use libp2p::Swarm;
 use libp2p::identity::Keypair;
 
-mod p2p;
-mod block;
+const DIFFICULTY_PREFIX: &str = "00";
 
-use crate::block::Block;
+mod p2p;
 
 const GENHASH:
     &str = "0000f816a87f806bb0073dcf026a64fb40c946b5abee2573702828694d5b4c43";
 
-const DIFFICULTY_PREFIX: &str = "00";
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct Block {
+    pub id: u64,
+    pub hash: String,
+    pub previous_hash: String,
+    pub timestamp: i64,
+    pub data: String,
+    pub nonce: u64,
+}
+
+impl Block {
+    pub fn new(id: u64, previous_hash: String, data: String) -> Self {
+        let now = Utc::now();
+        let (nonce, hash) = mine_block(id, now.timestamp(), &previous_hash, &data);
+        Self {
+            id,
+            hash,
+            timestamp: now.timestamp(),
+            previous_hash,
+            data,
+            nonce,
+        }
+    }
+}
 
 fn hash_to_binary_representation(hash: &[u8]) -> String {
     let mut res: String = String::default();

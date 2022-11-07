@@ -1,4 +1,13 @@
-use libp2p::Swarm;
+use super::{App, Block};
+
+use libp2p::{
+    floodsub::{Floodsub, FloodsubEvent, Topic},
+    identity,
+    mdns::{Mdns, MdnsEvent},
+    swarm::{NetworkBehaviourEventProcess, Swarm},
+    NetworkBehaviour, PeerId,
+};
+
 use std::collections::HashSet;
 
 use once_cell::sync::Lazy;
@@ -79,7 +88,7 @@ impl NetworkBehaviourEventProcess<MdnsEvent> for AppBehaviour {
 }
 
 // incoming event handler
-impl NetworkBehaviourEventProcess for AppBehaviour {
+impl NetworkBehaviourEventProcess<MdnsEvent> for AppBehaviour {
     fn inject_event(&mut self, event: FloodsubEvent) {
         if let FloodsubEvent::Message(msg) = event {
             if let Ok(resp) = serde_json::from_slice(&msg.data) {
@@ -108,7 +117,7 @@ impl NetworkBehaviourEventProcess for AppBehaviour {
     }
 }
 
-pub fn get_list_peers(swarm: &Swarm) -> Vec {
+pub fn get_list_peers(swarm: &Swarm<AppBehaviour>) -> Vec<String> {
     info!("Discovered Peers:");
     let nodes = swarm.behaviour().mdns.discovered_nodes();
     let mut unique_peers = HashSet::new();
@@ -118,19 +127,19 @@ pub fn get_list_peers(swarm: &Swarm) -> Vec {
     unique_peers.iter().map(|p| p.to_string()).collect()
 }
 
-pub fn handle_print_peers(swarm: &Swarm) {
+pub fn handle_print_peers(swarm: &Swarm<AppBehaviour>) {
     let peers = get_list_peers(swarm);
     peers.iter().for_each(|p| info!("{}", p));
 }
 
-pub fn handle_print_chain(swarm: &Swarm) {
+pub fn handle_print_chain(swarm: &Swarm<AppBehaviour>) {
     info!("Local Blockchain:");
     let pretty_json =
         serde_json::to_string_pretty(&swarm.behaviour().app.blocks).expect("can jsonify blocks");
     info!("{}", pretty_json);
 }
 
-pub fn handle_create_block(cmd: &str, swarm: &mut Swarm) {
+pub fn handle_create_block(cmd: &str, swarm: &mut Swarm<AppBehaviour>) {
     if let Some(data) = cmd.strip_prefix("create b") {
         let behaviour = swarm.behaviour_mut();
         let latest_block = behaviour
