@@ -195,7 +195,7 @@ async fn main() {
     let (response_sender, mut response_rcv) = mpsc::unbounded_channel();
     let (init_sender, mut init_rcv) = mpsc::unbounded_channel();
 
-    let auth_keys = Keypair::new()
+    let auth_keys = Keypair::<X25519Spec>::new()
         .into_authentic(&p2p::KEYS)
         .expect("can create auth keys");
 
@@ -271,9 +271,9 @@ loop {
                     }
                 }
                 p2p::EventType::LocalChainResponse(resp) => {
-                    let json = serde_json::to_string(&resp).expect("can jsonify response");
-                    swarm
-                        .behaviour_mut()
+                    let json = serde_json::to_string(&resp)
+			.expect("can jsonify response");
+                    swarm.behaviour_mut()
                         .floodsub
                         .publish(p2p::CHAIN_TOPIC.clone(), json.as_bytes());
                 }
