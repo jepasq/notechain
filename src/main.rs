@@ -8,8 +8,21 @@ use std::thread::{sleep, spawn};
 use std::io::{stdin, BufReader, BufRead};
 use std::time::Duration;
 
-use libp2p::Swarm;
-use libp2p::identity::Keypair;
+use libp2p::{
+    core::upgrade,
+    futures::StreamExt,
+    mplex,
+    noise::{Keypair, NoiseConfig, X25519Spec},
+    swarm::{Swarm, SwarmBuilder},
+    tcp::TokioTcpConfig,
+    Transport,
+};
+use tokio::{
+    io::{stdin, BufReader},
+    select, spawn,
+    sync::mpsc,
+    time::sleep,
+};
 
 const DIFFICULTY_PREFIX: &str = "00";
 

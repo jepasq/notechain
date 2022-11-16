@@ -7,7 +7,7 @@ use libp2p::{
     swarm::{NetworkBehaviourEventProcess, Swarm},
     NetworkBehaviour, PeerId,
 };
-
+use serde::{Deserialize, Serialize};
 use std::collections::HashSet;
 
 use once_cell::sync::Lazy;

@@ -7,6 +7,7 @@
 Maybe {user,visibility,note}
 **** TODO [fix_allTogether]Follow tutorial
 :LOGBOOK:
+CLOCK: [2022-11-16 mer. 13:59]--[2022-11-16 mer. 14:13] =>  0:14
 CLOCK: [2022-11-15 mar. 17:22]--[2022-11-15 mar. 17:47] =>  0:25
 CLOCK: [2022-11-07 lun. 17:08]--[2022-11-07 lun. 17:18] =>  0:10
 CLOCK: [2022-11-03 jeu. 13:52]--[2022-11-03 jeu. 14:09] =>  0:17
@@ -28,12 +29,10 @@ Final source code : https://github.com/zupzup/rust-blockchain-example
 - [X] =Mining=
 - [X] =Peer-to-peer basics=
 - [X] =Handling incoming messages=
-- [ ] =Putting it all together=
-  68 previous error
-  59 previous error
-  54 previous error
-  35 previous errors
-  - [ ] Try to move block in block.rs
-    but now, must prepend Block with block::
+- [-] =Putting it all together=
+  - [X] Rebuild after update  
+  - [ ] 48 previous errors : See final source code as example
+    Most are missing use/import errors
+    Now 39
 - [ ] =Testing our Rust blockchain=
 - [ ] =Conclusion=  
