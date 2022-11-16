@@ -1,13 +1,10 @@
 notechain - GPLv3 - A blochain-backed note taking application.
 
 === ChangeLog ===
+    8 items by revision
+    Create a tag and push --tags for each revision
+    SLOC is the result of `sloc src/`
 
-* v0.0.0-0 (14 Oct. 2022 - ???) SLOC ???
-- (8) Fixed some missing use statements
-- Added get_list_peers copied code
-- Add AppBehaviour-related code
-- Added Mining tutorial section code
-- Add a couple of App-related function
-- Added new tutorial chapter code
-- Add app::genesis implementation
-- Add App and Block structs
+
+* v0.0.0-2 (16 Nov. 2022 - ???) SLOC ???
+

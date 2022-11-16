@@ -1,0 +1,9 @@
+* v0.0.0-1 (14 Oct. 2022 - 16 Nov. 2022) SLOC 475
+- Fixed some missing use statements
+- Added get_list_peers copied code
+- Add AppBehaviour-related code
+- Added Mining tutorial section code
+- Add a couple of App-related function
+- Added new tutorial chapter code
+- Add app::genesis implementation
+- Add App and Block structs
