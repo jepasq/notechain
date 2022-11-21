@@ -4,8 +4,6 @@ use sha2::Digest;
 
 use log::{info, warn, error};  // USES warn!, error! etc...
 
-use std::thread::{sleep, spawn};
-use std::io::{stdin, BufReader, BufRead};
 use std::time::Duration;
 
 use libp2p::{
@@ -18,7 +16,7 @@ use libp2p::{
     Transport,
 };
 use tokio::{
-    io::{stdin, BufReader},
+    io::{stdin, AsyncBufReadExt, BufReader},
     select, spawn,
     sync::mpsc,
     time::sleep,
@@ -179,7 +177,7 @@ impl App {
 
     // We always choose the longest valid chain
     fn choose_chain(&mut self, local: Vec<Block>, remote: Vec<Block>)
-		    -> Vec<block::Block> {
+		    -> Vec<Block> {
         let is_local_valid = self.is_chain_valid(&local);
         let is_remote_valid = self.is_chain_valid(&remote);
 
@@ -237,7 +235,7 @@ async fn main() {
     .expect("swarm can be started");
 
     spawn(async move {
-        sleep(Duration::from_secs(1)); //.await;
+        sleep(Duration::from_secs(1)).await;
         info!("sending init event");
         init_sender.send(true).expect("can send init event");
     });
