@@ -8,9 +8,9 @@ use libp2p::{
     NetworkBehaviour, PeerId,
 };
 use log::{error, info};
-use once_cell::sync::Lazy;
 use serde::{Deserialize, Serialize};
 use std::collections::HashSet;
+use tokio::sync::mpsc;
 
 use once_cell::sync::Lazy;
 
@@ -104,14 +104,15 @@ impl NetworkBehaviourEventProcess<FloodsubEvent> for AppBehaviour {
 impl NetworkBehaviourEventProcess<MdnsEvent> for AppBehaviour {
     fn inject_event(&mut self, event: FloodsubEvent) {
         if let FloodsubEvent::Message(msg) = event {
-            if let Ok(resp) = serde_json::from_slice(&msg.data) {
+            if let Ok(resp)=serde_json::from_slice::<ChainResponse>(&msg.data){
                 if resp.receiver == PEER_ID.to_string() {
                     info!("Response from {}:", msg.source);
                     resp.blocks.iter().for_each(|r| info!("{:?}", r));
 
                     self.app.blocks = self.app.choose_chain(self.app.blocks.clone(), resp.blocks);
                 }
-            } else if let Ok(resp) = serde_json::from_slice(&msg.data) {
+            } else if let Ok(resp) = serde_json::
+	    from_slice::<LocalChainRequest>(&msg.data) {
                 info!("sending local chain to {}", msg.source.to_string());
                 let peer_id = resp.from_peer_id;
                 if PEER_ID.to_string() == peer_id {

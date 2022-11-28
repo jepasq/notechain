@@ -3,6 +3,7 @@ use sha2::Sha256;
 use sha2::Digest;
 
 use log::{info, warn, error};  // USES warn!, error! etc...
+use serde::{Deserialize, Serialize};
 
 use std::time::Duration;
 
@@ -42,7 +43,7 @@ pub struct Block {
 impl Block {
     pub fn new(id: u64, previous_hash: String, data: String) -> Self {
         let now = Utc::now();
-        let (nonce, hash) = mine_block(id, now.timestamp(), &previous_hash, &data);
+        let (nonce,hash)=mine_block(id, now.timestamp(),&previous_hash, &data);
         Self {
             id,
             hash,

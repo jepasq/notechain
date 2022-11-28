@@ -10,6 +10,7 @@ Maybe {user,visibility,note}
 - [ ] Make this project  public when it works
 **** TODO [fix_allTogether]Follow tutorial
 :LOGBOOK:
+CLOCK: [2022-11-28 lun. 18:24]--[2022-11-28 lun. 19:02] =>  0:38
 CLOCK: [2022-11-21 lun. 04:03]--[2022-11-21 lun. 04:19] =>  0:16
 CLOCK: [2022-11-16 mer. 13:59]--[2022-11-16 mer. 14:13] =>  0:14
 CLOCK: [2022-11-15 mar. 17:22]--[2022-11-15 mar. 17:47] =>  0:25
@@ -39,5 +40,6 @@ Final source code : https://github.com/zupzup/rust-blockchain-example
     Most are missing use/import errors. Now 39
   - [ ] Only 17 now. Most errors come from a bad import or a missing one
     from tokyo.
+  - [ ] Only 4 error now  
 - [ ] =Testing our Rust blockchain=
 - [ ] =Conclusion=  
