@@ -41,9 +41,9 @@ pub struct AppBehaviour {
     pub floodsub: Floodsub,
     pub mdns: Mdns,
     #[behaviour(ignore)]
-    pub response_sender: mpsc::UnboundedSender,
+    pub response_sender: mpsc::UnboundedSender<ChainResponse>,
     #[behaviour(ignore)]
-    pub init_sender: mpsc::UnboundedSender,
+    pub init_sender: mpsc::UnboundedSender<bool>,
     #[behaviour(ignore)]
     pub app: App,
 }
@@ -51,8 +51,8 @@ pub struct AppBehaviour {
 impl AppBehaviour {
     pub async fn new(
         app: App,
-        response_sender: mpsc::UnboundedSender,
-        init_sender: mpsc::UnboundedSender,
+        response_sender: mpsc::UnboundedSender<ChainResponse>,
+        init_sender: mpsc::UnboundedSender<bool>,
     ) -> Self {
         let mut behaviour = Self {
             app,
@@ -102,30 +102,19 @@ impl NetworkBehaviourEventProcess<FloodsubEvent> for AppBehaviour {
 
 
 impl NetworkBehaviourEventProcess<MdnsEvent> for AppBehaviour {
-    fn inject_event(&mut self, event: FloodsubEvent) {
-        if let FloodsubEvent::Message(msg) = event {
-            if let Ok(resp)=serde_json::from_slice::<ChainResponse>(&msg.data){
-                if resp.receiver == PEER_ID.to_string() {
-                    info!("Response from {}:", msg.source);
-                    resp.blocks.iter().for_each(|r| info!("{:?}", r));
-
-                    self.app.blocks = self.app.choose_chain(self.app.blocks.clone(), resp.blocks);
+    fn inject_event(&mut self, event: MdnsEvent) {
+        match event {
+            MdnsEvent::Discovered(discovered_list) => {
+                for (peer, _addr) in discovered_list {
+                    self.floodsub.add_node_to_partial_view(peer);
                 }
-            } else if let Ok(resp) = serde_json::
-	    from_slice::<LocalChainRequest>(&msg.data) {
-                info!("sending local chain to {}", msg.source.to_string());
-                let peer_id = resp.from_peer_id;
-                if PEER_ID.to_string() == peer_id {
-                    if let Err(e) = self.response_sender.send(ChainResponse {
-                        blocks: self.app.blocks.clone(),
-                        receiver: msg.source.to_string(),
-                    }) {
-                        error!("error sending response via channel, {}", e);
+            }
+            MdnsEvent::Expired(expired_list) => {
+                for (peer, _addr) in expired_list {
+                    if !self.mdns.has_node(&peer) {
+                        self.floodsub.remove_node_from_partial_view(&peer);
                     }
                 }
-            } else if let Ok(block) = serde_json::from_slice(&msg.data) {
-                info!("received new block from {}", msg.source.to_string());
-                self.app.try_add_block(block);
             }
         }
     }
