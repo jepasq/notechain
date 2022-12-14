@@ -2,13 +2,6 @@
 
 A blockchain-backed note taking application written in *rust*.
 
-# Building on Manjaro
-
-	sudo pacman -Sy rust
-	cargo build
-
-First build may be very long due to (300+) dependencies.
-
 # Rust major mode for emacs
 
 At least in *emacs* 28 or if [melpa](https://melpa.org/ 
@@ -17,5 +10,21 @@ At least in *emacs* 28 or if [melpa](https://melpa.org/
 	<M-x> package-install <RET>
 	rust-mode <RET>
 	
+# Building on Manjaro
 
+	sudo pacman -Sy rust
+	cargo build
 
+First build may be very long due to (300+) dependencies.
+
+# Running
+
+Yo have to run the application and set the `RUST_LOG` environment variable :
+
+	RUST_LOG=info cargo run
+
+# Commands
+
+	ls p            Print discovered peers.
+	ls c            Print the genesis block.
+	create b <data> Create a new block with the given data.
