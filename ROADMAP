@@ -3,10 +3,18 @@
 * v1.0.0
 ** v0.1.0
 *** v0.0.1
-**** Must attach values to each node
-Maybe {user,visibility,note}
+**** Must attach values to each node and maybe new commands
+  Commands are actually implemented in src/main.rs's main loop
+  Maybe {user,visibility,note}
+  
+- [X] Where are the actual commands : 
+- [ ] Better output readability, maybe through a custom logger
+  Actually, running with =RUST_LOG=info= produce too much info
+  running without produce none
+- [ ] Add a command prompt ?
+- [ ] Add a help command ?
 **** TODO Correct project setup
-- [ ] Add GPLv3 license file
+- [X] Add GPLv3 license file
 - [ ] Make this project  public when it works
 **** DONE Follow tutorial
 :LOGBOOK:
