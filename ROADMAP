@@ -11,8 +11,15 @@
 - [ ] Better output readability, maybe through a custom logger
   Actually, running with =RUST_LOG=info= produce too much info
   running without produce none
-- [ ] Add a command prompt ?
 - [ ] Add a help command ?
+**** Add a unit tested prompt struct and file
+:LOGBOOK:
+CLOCK: [2022-12-22 jeu. 02:38]--[2022-12-22 jeu. 02:53] =>  0:15
+:END:
+- [X] Explain how to run tests in README
+- [ ] Add a command prompt ?
+  Prompt may be a new, unit tested, class
+- [ ] May handle history of runned commands  
 **** TODO Correct project setup
 - [X] Add GPLv3 license file
 - [ ] Make this project  public when it works

@@ -7,6 +7,7 @@ notechain - GPLv3 - A blochain-backed note taking application.
 
 
 * v0.0.0-2 (16 Nov. 2022 - ???) SLOC ???
-- (3) Add GPLv3 licence text as COPYING
+- (4) Add basic Prompt class with ctor
+- Add GPLv3 licence text as COPYING
 - Add tutorial commands in README
 - Finally fixed all Putting it all together errors

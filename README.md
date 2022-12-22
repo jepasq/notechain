@@ -23,6 +23,10 @@ Yo have to run the application and set the `RUST_LOG` environment variable :
 
 	RUST_LOG=info cargo run
 
+# Unit tests
+
+	cargo test
+
 # Commands
 
 	ls p            Print discovered peers.
