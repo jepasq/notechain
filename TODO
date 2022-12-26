@@ -2,12 +2,14 @@ notechain - GPLv3 - A blochain-backed note taking application.
 
 === ChangeLog ===
     8 items by revision
+    Update verzion and revision in src/prompt.rs
     Create a tag and push --tags for each revision
     SLOC is the result of `sloc src/`
 
 
 * v0.0.0-2 (16 Nov. 2022 - ???) SLOC ???
-- (6) More Prompt unit tests
+- (7) Add promt intro text printing in main prg
+- More Prompt unit tests
 - Project is now public
 - Add basic Prompt class with ctor
 - Add GPLv3 licence text as COPYING

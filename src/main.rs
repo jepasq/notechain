@@ -204,6 +204,9 @@ async fn main() {
     // Setup
     pretty_env_logger::init();
 
+    let pr = prompt::Prompt::new();
+    pr.intro();
+    
     info!("Peer Id: {}", p2p::PEER_ID.clone());
     let (response_sender, mut response_rcv) = mpsc::unbounded_channel();
     let (init_sender, mut init_rcv) = mpsc::unbounded_channel();

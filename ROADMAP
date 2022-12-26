@@ -16,15 +16,18 @@
 Must be saved to disk, add unit tested save and load function
 **** TODO Add a unit tested prompt struct and file
 :LOGBOOK:
+CLOCK: [2022-12-26 lun. 06:21]--[2022-12-26 lun. 06:38] =>  0:17
 CLOCK: [2022-12-26 lun. 05:27]--[2022-12-26 lun. 05:33] =>  0:06
 CLOCK: [2022-12-22 jeu. 02:38]--[2022-12-22 jeu. 02:53] =>  0:15
 :END:
 - [X] Explain how to run tests in README
 - [X] Add a command prompt ?
   Prompt may be a new, unit tested, class
-- [ ] May add an intro with version, known commands etc...  
+- [X] May add an intro with version, known commands etc...  
+
 - [ ] Must find how to add new commands
   Maybe through callbacks (see https://stackoverflow.com/a/41081702)
+  - [ ] Then, add =help= command
 - [ ] May handle history of previous commands
   We Need a container with push_front here (either VecDeque or LinkedList)
 **** DONE Correct project setup
