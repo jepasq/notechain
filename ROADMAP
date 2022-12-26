@@ -14,12 +14,13 @@
 - [ ] Add a help command ?
 **** Blockchain must be persistant
 Must be saved to disk, add unit tested save and load function
-**** Add a unit tested prompt struct and file
+**** TODO Add a unit tested prompt struct and file
 :LOGBOOK:
+CLOCK: [2022-12-26 lun. 05:27]--[2022-12-26 lun. 05:33] =>  0:06
 CLOCK: [2022-12-22 jeu. 02:38]--[2022-12-22 jeu. 02:53] =>  0:15
 :END:
 - [X] Explain how to run tests in README
-- [ ] Add a command prompt ?
+- [X] Add a command prompt ?
   Prompt may be a new, unit tested, class
 - [ ] May add an intro with version, known commands etc...  
 - [ ] Must find how to add new commands
