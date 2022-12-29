@@ -1,3 +1,13 @@
+* v0.0.0-2 (16 Nov. 2022 - 29 Dec. 2022) SLOC 554
+- Add a very basic help command
+- Add prompt intro text printing in main prg
+- More Prompt unit tests
+- Project is now public
+- Add basic Prompt class with ctor
+- Add GPLv3 licence text as COPYING
+- Add tutorial commands in README
+- Finally fixed all Putting it all together errors
+
 * v0.0.0-1 (14 Oct. 2022 - 16 Nov. 2022) SLOC 475
 - Fixed some missing use statements
 - Added get_list_peers copied code
