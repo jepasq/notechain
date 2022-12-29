@@ -295,9 +295,10 @@ loop {
                 }
                 p2p::EventType::Input(line) => match line.as_str() {
                     "ls p" => p2p::handle_print_peers(&swarm),
+		    cmd if cmd.starts_with("h") => pr.help(),
                     cmd if cmd.starts_with("ls c") => p2p::handle_print_chain(&swarm),
                     cmd if cmd.starts_with("create b") => p2p::handle_create_block(cmd, &mut swarm),
-                    _ => error!("unknown command"),
+                    _ => error!("unknown command '{}'", line),
                 },
             }
         }

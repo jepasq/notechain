@@ -3,6 +3,7 @@
 * v1.0.0
 ** v0.1.0
 *** v0.0.1
+**** Maybe a webbased explorer ?
 **** Must attach values to each node and maybe new commands
   Commands are actually implemented in src/main.rs's main loop
   Maybe {user,visibility,note}
@@ -16,6 +17,7 @@
 Must be saved to disk, add unit tested save and load function
 **** TODO Add a unit tested prompt struct and file
 :LOGBOOK:
+CLOCK: [2022-12-29 jeu. 05:52]--[2022-12-29 jeu. 06:13] =>  0:21
 CLOCK: [2022-12-26 lun. 06:21]--[2022-12-26 lun. 06:38] =>  0:17
 CLOCK: [2022-12-26 lun. 05:27]--[2022-12-26 lun. 05:33] =>  0:06
 CLOCK: [2022-12-22 jeu. 02:38]--[2022-12-22 jeu. 02:53] =>  0:15
@@ -24,10 +26,12 @@ CLOCK: [2022-12-22 jeu. 02:38]--[2022-12-22 jeu. 02:53] =>  0:15
 - [X] Add a command prompt ?
   Prompt may be a new, unit tested, class
 - [X] May add an intro with version, known commands etc...  
-
+- [X] Add =help= command with basic intro-like test
+  
 - [ ] Must find how to add new commands
   Maybe through callbacks (see https://stackoverflow.com/a/41081702)
-  - [ ] Then, add =help= command
+
+- [ ] Help command may print message related to callback-added commands    
 - [ ] May handle history of previous commands
   We Need a container with push_front here (either VecDeque or LinkedList)
 **** DONE Correct project setup

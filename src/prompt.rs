@@ -4,6 +4,7 @@ pub struct Prompt {
      /// The text printed at the start of each line
     pub text: String, 
     pub intro_text: String,
+    pub help_text: String,
 }
 
 
@@ -11,13 +12,20 @@ impl Prompt {
     pub fn new() -> Self {
         Self { text:       " > ".to_string(),
 	       intro_text: "Welcome to notechain v0.0.0-2
-use help command to learn more.".to_string()}
+use help command to learn more.".to_string(),
+	       help_text: "Available commands
+help   print the text you're actually reading.".to_string(),
+	}
     }
 
     pub fn intro(&self) {
 	println!("{}\n", self.intro_text);
-
     }
+
+    pub fn help(&self) {
+	println!("{}\n", self.help_text);
+    }
+
 }
 
 #[cfg(test)]
@@ -57,6 +65,19 @@ mod tests {
 	let p = Prompt::new();
 	p.intro();
     }
- 
+
+    /// Prompt text isn't empty
+    #[test]
+    fn test_helptext_not_empty() {
+	let p = Prompt::new();
+	assert_eq!(p.help_text.trim().is_empty(), false);
+    }
+    
+   /// Prompt has an callable intro method
+    #[test]
+    fn test_has_an_help_method() {
+	let p = Prompt::new();
+	p.help();
+    }
     
 }
