@@ -1,5 +1,7 @@
 /// A command-line prompt handling struct
 
+type Callback = fn(String);
+
 pub struct Prompt {
      /// The text printed at the start of each line
     pub text: String, 
@@ -7,13 +9,22 @@ pub struct Prompt {
     pub help_text: String,
 }
 
+pub struct PromptCommand {
+    /// The callback
+    callback: Callback,
+    /// The text that trigger this command if it starts with this text
+    starts_with: String,
+    /// The help text
+    help_text: String,
+}
 
 impl Prompt {
     pub fn new() -> Self {
-        Self { text:       " > ".to_string(),
-	       intro_text: "Welcome to notechain v0.0.0-2
+        Self {
+	    text:       " > ".to_string(),
+	    intro_text: "Welcome to notechain v0.0.0-2
 use help command to learn more.".to_string(),
-	       help_text: "Available commands
+	    help_text: "Available commands
 help   print the text you're actually reading.".to_string(),
 	}
     }
@@ -25,7 +36,22 @@ help   print the text you're actually reading.".to_string(),
     pub fn help(&self) {
 	println!("{}\n", self.help_text);
     }
+}
 
+/// A very simple default callback
+pub fn nyi_callback(cmdtext: String) {
+    println!("NYI callback for '{}' command", cmdtext);
+}
+
+impl PromptCommand {
+    pub fn new() -> Self {
+	Self {
+	    callback: nyi_callback,
+	    starts_with: "".to_string(),
+	    help_text: "".to_string(),
+	    
+	}
+    }
 }
 
 #[cfg(test)]
@@ -79,5 +105,12 @@ mod tests {
 	let p = Prompt::new();
 	p.help();
     }
+
+   /// PromptCommand has an callable intro method
+    #[test]
+    fn test_prompt_command_has_a_new_method() {
+	let pc = PromptCommand::new();
+    }
+
     
 }
