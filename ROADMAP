@@ -15,8 +15,9 @@
 - [ ] Add a help command ?
 **** Blockchain must be persistant
 Must be saved to disk, add unit tested save and load function
-**** TODO Add a unit tested prompt struct and file
+**** TODO [feature_PromptCommandVec] Add a unit tested prompt struct and file
 :LOGBOOK:
+CLOCK: [2023-01-10 mar. 07:35]--[2023-01-10 mar. 07:48] =>  0:13
 CLOCK: [2023-01-04 mer. 07:57]--[2023-01-04 mer. 08:10] =>  0:13
 CLOCK: [2023-01-04 mer. 07:17]--[2023-01-04 mer. 07:45] =>  0:28
 CLOCK: [2022-12-29 jeu. 05:52]--[2022-12-29 jeu. 06:13] =>  0:21
@@ -33,6 +34,8 @@ CLOCK: [2022-12-22 jeu. 02:38]--[2022-12-22 jeu. 02:53] =>  0:15
 - [ ] Must find how to add new commands
   Maybe through callbacks (see https://stackoverflow.com/a/41081702)
   We will need a PromptCommand struct and a list
+  - [ ] Prompt must have a commands list (or vector)
+  - [ ] we can add some PromptCommand
   
 - [ ] Help command may print message related to callback-added commands    
 - [ ] May handle history of previous commands

@@ -2,6 +2,7 @@
 
 type Callback = fn(String);
 
+/// The full prompt object used to handle user input. You should have only one.
 pub struct Prompt {
      /// The text printed at the start of each line
     pub text: String, 
@@ -9,6 +10,7 @@ pub struct Prompt {
     pub help_text: String,
 }
 
+/// A command you can add to the Prompt struct
 pub struct PromptCommand {
     /// The callback
     callback: Callback,
@@ -112,5 +114,32 @@ mod tests {
 	let pc = PromptCommand::new();
     }
 
+   /// Prompt has an callable intro method
+    #[test]
+    fn test_prompt_has_an_get_commands_function() {
+	let p = Prompt::new();
+	let vec = p.getCommands();
+    }
+
+   /// Prompt has an callable intro method
+    #[test]
+    fn test_prompt_commands_vec_is_empty() {
+	let p = Prompt::new();
+	let vec = p.getCommands();
+	assert_eq!(ve c.is_empty(), true);
+    }
+
+   /// Prompt has an callable intro method
+    #[test]
+    fn test_prompt_has_an_add_method() {
+	let p = Prompt::new();
+	let vecl1 = p.getCommands().len();
+
+	let pc = PromptCommand::new();
+	p.add(pc);
+	
+	assert_eq!(p.getCommands().len(), vecl1 + 1);
+	
+    }
     
 }
