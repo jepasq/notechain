@@ -19,11 +19,13 @@ First build may be very long due to (300+) dependencies.
 
 # Running
 
-Yo have to run the application and set the `RUST_LOG` environment variable :
+You have to run the application and set the `RUST_LOG` environment variable :
 
 	RUST_LOG=info cargo run
 
 # Unit tests
+
+This program is shipped with unit tests. To build and execute them, run :
 
 	cargo test
 
