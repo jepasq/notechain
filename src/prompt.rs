@@ -8,6 +8,7 @@ pub struct Prompt {
     pub text: String, 
     pub intro_text: String,
     pub help_text: String,
+    commands: Vec<PromptCommand>,
 }
 
 /// A command you can add to the Prompt struct
@@ -37,6 +38,10 @@ help   print the text you're actually reading.".to_string(),
 
     pub fn help(&self) {
 	println!("{}\n", self.help_text);
+    }
+
+    pub fn getCommands(&self) -> Vec<PromptCommand> {
+	self.commands;
     }
 }
 

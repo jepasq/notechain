@@ -8,5 +8,6 @@ notechain - GPLv3 - A blochain-backed note taking application.
 
 
 * v0.0.0-3 (29 Dec. 2022 - ???) SLOC ???
-- (2) Add multiple failing tests for Prompt struct
+- (3) Implement Promt::getComands() function
+- Add multiple failing tests for Prompt struct
 - Start PromptCommand struct implementation
