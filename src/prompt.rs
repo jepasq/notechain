@@ -29,6 +29,7 @@ impl Prompt {
 use help command to learn more.".to_string(),
 	    help_text: "Available commands
 help   print the text you're actually reading.".to_string(),
+	    commands: Vec::new()
 	}
     }
 
@@ -41,8 +42,13 @@ help   print the text you're actually reading.".to_string(),
     }
 
     pub fn getCommands(&self) -> Vec<PromptCommand> {
-	self.commands;
+	self.commands
     }
+
+    pub fn add(&self, PromptCommand pc) {
+	self.commands.push(pc);
+    }
+    
 }
 
 /// A very simple default callback

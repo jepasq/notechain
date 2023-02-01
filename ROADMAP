@@ -17,6 +17,7 @@
 Must be saved to disk, add unit tested save and load function
 **** TODO [feature_PromptCommandVec] Add a unit tested prompt struct and file
 :LOGBOOK:
+CLOCK: [2023-02-01 mer. 08:49]--[2023-02-01 mer. 08:58] =>  0:09
 CLOCK: [2023-01-10 mar. 07:35]--[2023-01-10 mar. 07:48] =>  0:13
 CLOCK: [2023-01-04 mer. 07:57]--[2023-01-04 mer. 08:10] =>  0:13
 CLOCK: [2023-01-04 mer. 07:17]--[2023-01-04 mer. 07:45] =>  0:28
