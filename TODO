@@ -8,7 +8,7 @@ notechain - GPLv3 - A blochain-backed note taking application.
 
 
 * v0.0.0-3 (29 Dec. 2022 - ???) SLOC ???
-- (5) Remove getCommands function and fix some burrow issue with unit tests
+- (5) Remove getCommands function and fix some borrow issue with unit tests
 - Prompt::add implementation
 - Implement Promt::getComands() function
 - Add multiple failing tests for Prompt struct
