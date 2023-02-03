@@ -8,7 +8,7 @@ pub struct Prompt {
     pub text: String, 
     pub intro_text: String,
     pub help_text: String,
-    commands: Vec<PromptCommand>,
+    pub commands: Vec<PromptCommand>,
 }
 
 /// A command you can add to the Prompt struct
@@ -41,11 +41,7 @@ help   print the text you're actually reading.".to_string(),
 	println!("{}\n", self.help_text);
     }
 
-    pub fn getCommands(&self) -> Vec<PromptCommand> {
-	self.commands
-    }
-
-    pub fn add(&self, PromptCommand pc) {
+    pub fn add(&mut self, pc: PromptCommand){
 	self.commands.push(pc);
     }
     
@@ -122,34 +118,34 @@ mod tests {
    /// PromptCommand has an callable intro method
     #[test]
     fn test_prompt_command_has_a_new_method() {
-	let pc = PromptCommand::new();
+	let _pc = PromptCommand::new();
     }
 
    /// Prompt has an callable intro method
     #[test]
-    fn test_prompt_has_an_get_commands_function() {
+    fn test_prompt_can_access_commands() {
 	let p = Prompt::new();
-	let vec = p.getCommands();
+	let _vec = p.commands;
     }
 
    /// Prompt has an callable intro method
     #[test]
     fn test_prompt_commands_vec_is_empty() {
 	let p = Prompt::new();
-	let vec = p.getCommands();
-	assert_eq!(ve c.is_empty(), true);
+	let vec = p.commands;
+	assert_eq!(vec.is_empty(), true);
     }
 
    /// Prompt has an callable intro method
     #[test]
     fn test_prompt_has_an_add_method() {
-	let p = Prompt::new();
-	let vecl1 = p.getCommands().len();
+	let mut p = Prompt::new();
+	let vecl1 = p.commands.len();
 
 	let pc = PromptCommand::new();
 	p.add(pc);
 	
-	assert_eq!(p.getCommands().len(), vecl1 + 1);
+	assert_eq!(p.commands.len(), vecl1 + 1);
 	
     }
     
