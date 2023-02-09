@@ -1,5 +1,7 @@
 /// A command-line prompt handling struct
 
+
+/// The String parameter should be the complete command, maybe to handle params
 type Callback = fn(String);
 
 /// The full prompt object used to handle user input. You should have only one.
@@ -60,6 +62,10 @@ impl PromptCommand {
 	    help_text: "".to_string(),
 	    
 	}
+    }
+
+    pub fn execute(&self, str: String) {
+	(self.callback)(str);
     }
 }
 
@@ -136,7 +142,7 @@ mod tests {
 	assert_eq!(vec.is_empty(), true);
     }
 
-   /// Prompt has an callable intro method
+   /// Prompt has a callable intro method
     #[test]
     fn test_prompt_has_an_add_method() {
 	let mut p = Prompt::new();
@@ -146,7 +152,17 @@ mod tests {
 	p.add(pc);
 	
 	assert_eq!(p.commands.len(), vecl1 + 1);
-	
     }
+
+   /// Prompt has an callable intro method
+    #[test]
+    fn test_prompt_command_has_an_execute_method() {
+	let mut p = Prompt::new();
+	let vecl1 = p.commands.len();
+
+	let pc = PromptCommand::new();
+	pc.execute("".to_string());
+    }
+
     
 }
