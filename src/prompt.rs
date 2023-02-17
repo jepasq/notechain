@@ -16,11 +16,11 @@ pub struct Prompt {
 /// A command you can add to the Prompt struct
 pub struct PromptCommand {
     /// The callback
-    callback: Callback,
+    pub callback: Callback,
     /// The text that trigger this command if it starts with this text
-    starts_with: String,
+    pub starts_with: String,
     /// The help text
-    help_text: String,
+    pub help_text: String,
 }
 
 impl Prompt {
@@ -46,6 +46,14 @@ help   print the text you're actually reading.".to_string(),
     pub fn add(&mut self, pc: PromptCommand){
 	self.commands.push(pc);
     }
+
+    pub fn exec(&mut self, cmdstring: String){
+	for cmd in self.commands.iter() {
+	    println!("{}\n", cmd.starts_with);
+	    
+	}
+    }
+    
     
 }
 
@@ -154,7 +162,7 @@ mod tests {
 	assert_eq!(p.commands.len(), vecl1 + 1);
     }
 
-   /// Prompt has an callable intro method
+    /// Prompt has an callable intro method
     #[test]
     fn test_prompt_command_has_an_execute_method() {
 	let mut p = Prompt::new();
@@ -164,5 +172,18 @@ mod tests {
 	pc.execute("".to_string());
     }
 
+    /// Prompt has an callable intro method
+    #[test]
+    fn test_prompt_exec_method() {
+	let p = Prompt::new();
+	let vecl1 = p.commands.len();
+
+	let mut pc = PromptCommand::new();
+	pc.starts_with= "azeaze".to_string();
+	pc.help_text= "zerzer".to_string();
+
+
+	p.exec("aze".to_string());
+    }
     
 }
