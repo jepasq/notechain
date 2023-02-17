@@ -47,14 +47,16 @@ help   print the text you're actually reading.".to_string(),
 	self.commands.push(pc);
     }
 
-    pub fn exec(&mut self, cmdstring: String){
+    pub fn exec(&mut self, cmdstring: String) -> bool{
 	for cmd in self.commands.iter() {
 	    println!("{}\n", cmd.starts_with);
-	    
+	    if cmdstring.starts_with(&cmd.starts_with) {
+		cmd.execute(cmdstring);
+		return true;
+	    }
 	}
+	return false;
     }
-    
-    
 }
 
 /// A very simple default callback
@@ -165,25 +167,34 @@ mod tests {
     /// Prompt has an callable intro method
     #[test]
     fn test_prompt_command_has_an_execute_method() {
-	let mut p = Prompt::new();
-	let vecl1 = p.commands.len();
-
 	let pc = PromptCommand::new();
 	pc.execute("".to_string());
     }
 
     /// Prompt has an callable intro method
     #[test]
-    fn test_prompt_exec_method() {
-	let p = Prompt::new();
-	let vecl1 = p.commands.len();
+    fn test_prompt_exec_method_notfound() {
+	let mut p = Prompt::new();
 
 	let mut pc = PromptCommand::new();
 	pc.starts_with= "azeaze".to_string();
 	pc.help_text= "zerzer".to_string();
 
+	// Should return false (not found)
+	assert_eq!(p.exec("RRaze".to_string()), false);
+    }
+    
+    /// Prompt has an callable intro method
+    #[test]
+    fn test_prompt_exec_method_found() {
+	let mut p = Prompt::new();
 
-	p.exec("aze".to_string());
+	let mut pc = PromptCommand::new();
+	pc.starts_with= "azeaze".to_string();
+	pc.help_text= "zerzer".to_string();
+
+	// Should return true (starts_with found)
+	assert_eq!(p.exec("aze".to_string()), true);
     }
     
 }
