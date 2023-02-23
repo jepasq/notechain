@@ -8,7 +8,8 @@ notechain - GPLv3 - A blochain-backed note taking application.
 
 
 * v0.0.0-3 (29 Dec. 2022 - ???) SLOC ???
-- (7) Start to implement Prompt::exec match block
+- (8) Improve Prompt::exec unit tests but still failing
+- Start to implement Prompt::exec match block
 - Implement and test the PromptCommand execute function
 - Remove getCommands function and fix some borrow issue with unit tests
 - Prompt::add implementation

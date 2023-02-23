@@ -193,6 +193,11 @@ mod tests {
 	pc.starts_with= "azeaze".to_string();
 	pc.help_text= "zerzer".to_string();
 
+	p.add(pc);
+
+	// Should return false
+	assert_eq!(p.exec("tut".to_string()), false);
+	
 	// Should return true (starts_with found)
 	assert_eq!(p.exec("aze".to_string()), true);
     }

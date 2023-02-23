@@ -17,6 +17,7 @@
 Must be saved to disk, add unit tested save and load function
 **** TODO Add a unit tested prompt struct and file
 :LOGBOOK:
+CLOCK: [2023-02-23 jeu. 04:13]--[2023-02-23 jeu. 04:58] =>  0:45
 CLOCK: [2023-02-17 ven. 11:26]--[2023-02-17 ven. 11:53] =>  0:27
 CLOCK: [2023-02-17 ven. 10:49]--[2023-02-17 ven. 11:09] =>  0:20
 CLOCK: [2023-02-09 jeu. 14:30]--[2023-02-09 jeu. 15:00] =>  0:30
