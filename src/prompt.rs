@@ -27,7 +27,7 @@ impl Prompt {
     pub fn new() -> Self {
         Self {
 	    text:       " > ".to_string(),
-	    intro_text: "Welcome to notechain v0.0.0-2
+	    intro_text: "Welcome to notechain v0.0.0-3
 use help command to learn more.".to_string(),
 	    help_text: "Available commands
 help   print the text you're actually reading.".to_string(),
