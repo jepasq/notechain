@@ -31,6 +31,8 @@ This program is shipped with unit tests. To build and execute them, run :
 
 # Commands
 
+Actually, the program prompt accepts these commands :
+
 	ls p            Print discovered peers.
 	ls c            Print the genesis block.
 	create b <data> Create a new block with the given data.

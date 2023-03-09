@@ -298,7 +298,8 @@ loop {
 		    cmd if cmd.starts_with("h") => pr.help(),
                     cmd if cmd.starts_with("ls c") => p2p::handle_print_chain(&swarm),
                     cmd if cmd.starts_with("create b") => p2p::handle_create_block(cmd, &mut swarm),
-                    _ => error!("unknown command '{}'", line),
+//		    cmd if pr.exec(cmd) => ,
+		    _ =>  error!("unknown command '{}'", line),
                 },
             }
         }

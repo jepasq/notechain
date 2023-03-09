@@ -70,7 +70,6 @@ impl PromptCommand {
 	    callback: nyi_callback,
 	    starts_with: "".to_string(),
 	    help_text: "".to_string(),
-	    
 	}
     }
 

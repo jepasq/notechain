@@ -46,7 +46,10 @@ CLOCK: [2022-12-22 jeu. 02:38]--[2022-12-22 jeu. 02:53] =>  0:15
   - [ ] Execute callback when command is executed  
     Prompt::exec can return true if correctly handled false if not found
     Must fix actually failing unit test
-    
+  - [ ] Must add pr.exec() to the accepted commands
+
+- [ ] May add a quit PromptCommand
+
 - [ ] Help command may print message related to callback-added commands    
 - [ ] May handle history of previous commands
   We Need a container with push_front here (either VecDeque or LinkedList)
