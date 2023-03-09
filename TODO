@@ -8,4 +8,4 @@ notechain - GPLv3 - A blochain-backed note taking application.
 
 
 * v0.0.0-4 (23 Feb. 2023 - ???) SLOC ???
-
+- (1) Split Prompt exec tests in two functions

@@ -186,7 +186,7 @@ mod tests {
     
     /// Prompt has an callable intro method
     #[test]
-    fn test_prompt_exec_method_found() {
+    fn test_prompt_exec_method_found_false() {
 	let mut p = Prompt::new();
 
 	let mut pc = PromptCommand::new();
@@ -197,7 +197,19 @@ mod tests {
 
 	// Should return false
 	assert_eq!(p.exec("tut".to_string()), false);
-	
+    }
+
+    /// Prompt has an callable intro method
+    #[test]
+    fn test_prompt_exec_method_found_true() {
+	let mut p = Prompt::new();
+
+	let mut pc = PromptCommand::new();
+	pc.starts_with= "azeaze".to_string();
+	pc.help_text= "zerzer".to_string();
+
+	p.add(pc);
+
 	// Should return true (starts_with found)
 	assert_eq!(p.exec("aze".to_string()), true);
     }
