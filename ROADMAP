@@ -17,6 +17,7 @@
 Must be saved to disk, add unit tested save and load function
 **** TODO Add a unit tested prompt struct and file
 :LOGBOOK:
+CLOCK: [2023-03-16 jeu. 09:46]--[2023-03-16 jeu. 09:56] =>  0:10
 CLOCK: [2023-03-09 jeu. 09:03]--[2023-03-09 jeu. 09:17] =>  0:14
 CLOCK: [2023-02-23 jeu. 04:13]--[2023-02-23 jeu. 04:58] =>  0:45
 CLOCK: [2023-02-17 ven. 11:26]--[2023-02-17 ven. 11:53] =>  0:27
@@ -37,7 +38,9 @@ CLOCK: [2022-12-22 jeu. 02:38]--[2022-12-22 jeu. 02:53] =>  0:15
   Prompt may be a new, unit tested, class
 - [X] May add an intro with version, known commands etc...  
 - [X] Add =help= command with basic intro-like test
-  
+ 
+- [X] May add a quit PromptCommand
+
 - [-] Must find how to add new commands
   Maybe through callbacks (see https://stackoverflow.com/a/41081702)
   We will need a PromptCommand struct and a list
@@ -47,9 +50,8 @@ CLOCK: [2022-12-22 jeu. 02:38]--[2022-12-22 jeu. 02:53] =>  0:15
     Prompt::exec can return true if correctly handled false if not found
     Must fix actually failing unit test
   - [ ] Must add pr.exec() to the accepted commands
-
-- [ ] May add a quit PromptCommand
-
+  
+  
 - [ ] Help command may print message related to callback-added commands    
 - [ ] May handle history of previous commands
   We Need a container with push_front here (either VecDeque or LinkedList)

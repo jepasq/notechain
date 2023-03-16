@@ -199,13 +199,25 @@ impl App {
     }
 }
 
+/// A very simple default callback
+pub fn quit_callback(_cmdtext: String) {
+    println!("Exitting application... (NYI)");
+}
+
 #[tokio::main]
 async fn main() {
     // Setup
     pretty_env_logger::init();
 
-    let pr = prompt::Prompt::new();
+    let mut pr = prompt::Prompt::new();
     pr.intro();
+
+    // Create and add the quit command
+    let mut quit_cmd = prompt::PromptCommand::new();
+    quit_cmd.starts_with= "q".to_string();
+    quit_cmd.help_text= "zerzer".to_string();
+    quit_cmd.callback = quit_callback;
+    pr.add(quit_cmd);
     
     info!("Peer Id: {}", p2p::PEER_ID.clone());
     let (response_sender, mut response_rcv) = mpsc::unbounded_channel();
