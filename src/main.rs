@@ -214,8 +214,8 @@ async fn main() {
 
     // Create and add the quit command
     let mut quit_cmd = prompt::PromptCommand::new();
-    quit_cmd.starts_with= "q".to_string();
-    quit_cmd.help_text= "zerzer".to_string();
+    quit_cmd.starts_with= "quit".to_string();
+    quit_cmd.help_text= "exit the program with a success status code".to_string();
     quit_cmd.callback = quit_callback;
     pr.add(quit_cmd);
     
