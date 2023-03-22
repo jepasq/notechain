@@ -23,6 +23,8 @@ use tokio::{
     time::sleep,
 };
 
+use std::process;    // USES exit()
+
 const DIFFICULTY_PREFIX: &str = "00";
 
 mod p2p;
@@ -201,7 +203,9 @@ impl App {
 
 /// A very simple default callback
 pub fn quit_callback(_cmdtext: String) {
-    println!("Exitting application... (NYI)");
+    println!("Exitting application...");
+    // from https://doc.rust-lang.org/std/process/fn.exit.html
+    process::exit(0x0100);
 }
 
 #[tokio::main]
@@ -310,8 +314,9 @@ loop {
 		    cmd if cmd.starts_with("h") => pr.help(),
                     cmd if cmd.starts_with("ls c") => p2p::handle_print_chain(&swarm),
                     cmd if cmd.starts_with("create b") => p2p::handle_create_block(cmd, &mut swarm),
-//		    cmd if pr.exec(cmd) => ,
-		    _ =>  error!("unknown command '{}'", line),
+		 //   cmd if pr.exec(cmd) => ,
+		    //   _ =>  error!("unknown command '{}'", line),
+		    _ =>  pr.exec_noret(line),
                 },
             }
         }

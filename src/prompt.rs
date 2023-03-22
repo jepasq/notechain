@@ -28,7 +28,7 @@ impl Prompt {
         Self {
 	    text:       " > ".to_string(),
 	    intro_text: "Welcome to notechain v0.0.0-3
-use help command to learn more.".to_string(),
+use `help' command to learn more.".to_string(),
 	    help_text: "Available commands
 help       print the text you're actually reading.".to_string(),
 	    commands: Vec::new()
@@ -40,12 +40,12 @@ help       print the text you're actually reading.".to_string(),
     }
 
     pub fn help(&self) {
-	println!("{}", self.help_text);
+	println!("\n{}", self.help_text);
 
 	for cmd in self.commands.iter() {
 	    println!("{:10} {}", cmd.starts_with, cmd.help_text);
 	}
-
+	println!("");
     }
 
     pub fn add(&mut self, pc: PromptCommand){
@@ -61,6 +61,13 @@ help       print the text you're actually reading.".to_string(),
 	    }
 	}
 	return false;
+    }
+
+    pub fn exec_noret(&mut self, cmdstring: String) {
+	let c = cmdstring.clone();
+	if !self.exec(cmdstring) {
+	    println!("Unknown command '{}'", c);
+	}
     }
 }
 

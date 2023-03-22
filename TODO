@@ -8,6 +8,7 @@ notechain - GPLv3 - A blochain-backed note taking application.
 
 
 * v0.0.0-4 (23 Feb. 2023 - ???) SLOC ???
-- (3) Correctly print help for all commands
+- (4) Quit PromptCommnad works
+- Correctly print help for all commands
 - Add a not yet implemented quit PromptCommand
 - Split Prompt exec tests in two functions
