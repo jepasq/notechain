@@ -17,6 +17,7 @@
 Must be saved to disk, add unit tested save and load function
 **** TODO Add a unit tested prompt struct and file
 :LOGBOOK:
+CLOCK: [2023-03-28 mar. 10:33]--[2023-03-28 mar. 10:44] =>  0:11
 CLOCK: [2023-03-28 mar. 09:10]--[2023-03-28 mar. 09:45] =>  0:35
 CLOCK: [2023-03-22 mer. 09:19]--[2023-03-22 mer. 09:32] =>  0:13
 CLOCK: [2023-03-22 mer. 08:46]--[2023-03-22 mer. 08:58] =>  0:12
@@ -57,6 +58,7 @@ CLOCK: [2022-12-22 jeu. 02:38]--[2022-12-22 jeu. 02:53] =>  0:15
   
 - [ ] May handle history of previous commands
   We Need a container with push_front here (either VecDeque or LinkedList)
+  - [ ] Test and implement add(String) and list() functions
 **** DONE Correct project setup
 - [X] Add GPLv3 license file
 - [X] Make this project public when it works

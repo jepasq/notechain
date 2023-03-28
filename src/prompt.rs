@@ -1,6 +1,5 @@
 /// A command-line prompt handling struct
 
-
 /// The String parameter should be the complete command, maybe to handle params
 type Callback = fn(String);
 

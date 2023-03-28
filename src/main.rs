@@ -29,6 +29,7 @@ const DIFFICULTY_PREFIX: &str = "00";
 
 mod p2p;
 mod prompt;
+mod history;
 
 const GENHASH:
     &str = "0000f816a87f806bb0073dcf026a64fb40c946b5abee2573702828694d5b4c43";
