@@ -29,8 +29,11 @@ impl Prompt {
 	    text:       " > ".to_string(),
 	    intro_text: "Welcome to notechain v0.0.0-3
 use `help' command to learn more.".to_string(),
-	    help_text: "Available commands
-help       print the text you're actually reading.".to_string(),
+	    help_text: "Available commands (1st letter may be enough)
+  help            print the text you're actually reading.
+  create b <data> Create a new block with the given data.
+  ls p            Print discovered peers.
+  ls c            Print the genesis block.".to_string(),
 	    commands: Vec::new()
 	}
     }
@@ -43,7 +46,7 @@ help       print the text you're actually reading.".to_string(),
 	println!("\n{}", self.help_text);
 
 	for cmd in self.commands.iter() {
-	    println!("{:10} {}", cmd.starts_with, cmd.help_text);
+	    println!("  {:15} {}", cmd.starts_with, cmd.help_text);
 	}
 	println!("");
     }
