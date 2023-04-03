@@ -13,6 +13,10 @@ impl History {
 	    cmds: VecDeque::new()
 	}
     }
+
+    pub fn len(&self) -> usize {
+	return self.cmds.len();
+    }
 }
 
 #[cfg(test)]
@@ -24,4 +28,12 @@ mod tests {
     fn test_inst() {
 	History::new();
     }
+
+    #[test]
+    fn test_len() {
+	let h = History::new();
+	assert_eq!(h.len(), 0);
+	
+    }
+
 }

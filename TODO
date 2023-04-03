@@ -8,7 +8,8 @@ notechain - GPLv3 - A blochain-backed note taking application.
 
 
 * v0.0.0-4 (23 Feb. 2023 - ???) SLOC ???
-- (6) Add almost empty history mod
+- (7) Implement History::len and test it
+- Add almost empty history mod
 - Add actual commands from README to help result
 - Quit PromptCommnad works
 - Correctly print help for all commands
