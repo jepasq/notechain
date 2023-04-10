@@ -17,6 +17,7 @@
 Must be saved to disk, add unit tested save and load function
 **** TODO Handle history  
 :LOGBOOK:
+CLOCK: [2023-04-10 lun. 11:11]--[2023-04-10 lun. 11:24] =>  0:13
 CLOCK: [2023-04-03 lun. 13:33]--[2023-04-03 lun. 13:45] =>  0:12
 :END:
 - [X] Implement History::len
@@ -25,6 +26,9 @@ CLOCK: [2023-04-03 lun. 13:33]--[2023-04-03 lun. 13:45] =>  0:12
 - [ ] May handle history of previous commands
   We Need a container with push_front here (either VecDeque or LinkedList)
   - [ ] Test and implement add(String) and list() functions
+
+- [X] Regular call to =cargo update= then tests and run
+  10 Apr. 2023 : multiple updates
 **** DONE Add a unit tested prompt struct and file
 :LOGBOOK:
 CLOCK: [2023-03-28 mar. 10:33]--[2023-03-28 mar. 10:44] =>  0:11
