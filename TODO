@@ -7,12 +7,5 @@ notechain - GPLv3 - A blochain-backed note taking application.
     SLOC is the result of `sloc src/`
 
 
-* v0.0.0-4 (23 Feb. 2023 - ???) SLOC ???
-- (8) Update some dependencies using cargo update command
-- Implement History::len and test it
-- Add almost empty history mod
-- Add actual commands from README to help result
-- Quit PromptCommnad works
-- Correctly print help for all commands
-- Add a not yet implemented quit PromptCommand
-- Split Prompt exec tests in two functions
+* v0.0.0-5 (10 Apr. 2023 - ???) SLOC ???
+
