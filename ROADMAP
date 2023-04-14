@@ -17,10 +17,12 @@
 Must be saved to disk, add unit tested save and load function
 **** TODO Handle history  
 :LOGBOOK:
+CLOCK: [2023-04-14 ven. 13:03]--[2023-04-14 ven. 13:09] =>  0:06
 CLOCK: [2023-04-10 lun. 11:11]--[2023-04-10 lun. 11:24] =>  0:13
 CLOCK: [2023-04-03 lun. 13:33]--[2023-04-03 lun. 13:45] =>  0:12
 :END:
 - [X] Implement History::len
+- [ ] Add a len command to know the number of generated blocks  
 - [ ] =ls c= doesn't only show genesis block, it seems to print complete chain
 - [ ] The =prompt::tests::test_prompt_exec_method_found_true= test fails
 - [ ] May handle history of previous commands
@@ -29,6 +31,7 @@ CLOCK: [2023-04-03 lun. 13:33]--[2023-04-03 lun. 13:45] =>  0:12
 
 - [X] Regular call to =cargo update= then tests and run
   10 Apr. 2023 : multiple updates
+  14 Apr. 2023 : multiple updates (serde+ and syn)
 **** DONE Add a unit tested prompt struct and file
 :LOGBOOK:
 CLOCK: [2023-03-28 mar. 10:33]--[2023-03-28 mar. 10:44] =>  0:11
