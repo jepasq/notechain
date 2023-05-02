@@ -17,12 +17,16 @@
 Must be saved to disk, add unit tested save and load function
 **** TODO Handle history  
 :LOGBOOK:
+CLOCK: [2023-05-02 mar. 11:53]--[2023-05-02 mar. 12:09] =>  0:16
 CLOCK: [2023-04-14 ven. 13:03]--[2023-04-14 ven. 13:09] =>  0:06
 CLOCK: [2023-04-10 lun. 11:11]--[2023-04-10 lun. 11:24] =>  0:13
 CLOCK: [2023-04-03 lun. 13:33]--[2023-04-03 lun. 13:45] =>  0:12
 :END:
 - [X] Implement History::len
-- [ ] Add a len command to know the number of generated blocks  
+- [-] Add a len command to know the number of generated blocks
+  - [X] Command and callback created
+  - [ ] Now, must get this number, maybe through p2p.rs, with a Swarn global
+    variables ? or mayby pass Swarm object as paremeter of command exec ?
 - [ ] =ls c= doesn't only show genesis block, it seems to print complete chain
 - [ ] The =prompt::tests::test_prompt_exec_method_found_true= test fails
 - [ ] May handle history of previous commands

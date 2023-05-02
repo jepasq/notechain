@@ -209,6 +209,12 @@ pub fn quit_callback(_cmdtext: String) {
     process::exit(0x0100);
 }
 
+pub fn len_callback(_cmdtext: String) {
+    print!("Actual blockchain length in blocks :");
+    println!("???");
+}
+
+
 #[tokio::main]
 async fn main() {
     // Setup
@@ -217,12 +223,22 @@ async fn main() {
     let mut pr = prompt::Prompt::new();
     pr.intro();
 
+    // Create and add the len command
+    let mut len_cmd = prompt::PromptCommand::new();
+    len_cmd.starts_with= "len".to_string();
+    len_cmd.help_text= "print the blockchain length in blocks"
+	.to_string();
+    len_cmd.callback = len_callback;
+    pr.add(len_cmd);
+    
     // Create and add the quit command
     let mut quit_cmd = prompt::PromptCommand::new();
     quit_cmd.starts_with= "quit".to_string();
-    quit_cmd.help_text= "exit the program with a success status code".to_string();
+    quit_cmd.help_text= "exit the program with a success status code"
+	.to_string();
     quit_cmd.callback = quit_callback;
     pr.add(quit_cmd);
+
     
     info!("Peer Id: {}", p2p::PEER_ID.clone());
     let (response_sender, mut response_rcv) = mpsc::unbounded_channel();
@@ -263,7 +279,7 @@ async fn main() {
     });
 
     // main loop
-loop {
+    loop {
         let evt = {
             select! {
                 line = stdin.next_line() => Some(p2p::EventType::Input(line.expect("can get line").expect("can read line from stdin"))),
