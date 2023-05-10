@@ -8,6 +8,7 @@ notechain - GPLv3 - A blochain-backed note taking application.
 
 
 * v0.0.0-5 (10 Apr. 2023 - ???) SLOC ???
-- (3) Start to implement 'len' command
+- (4) Add swarm parameter and make build command work again
+- Start to implement 'len' command
 - Multiple dependencies update
 - Upgrade some rust dependencies (serde+ and syn)

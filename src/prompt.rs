@@ -1,7 +1,10 @@
 /// A command-line prompt handling struct
+use libp2p::swarm::Swarm;
+
+use super::*;
 
 /// The String parameter should be the complete command, maybe to handle params
-type Callback = fn(String);
+type Callback = fn(String, swarm: &Swarm<p2p::AppBehaviour>);
 
 /// The full prompt object used to handle user input. You should have only one.
 pub struct Prompt {
@@ -54,27 +57,29 @@ use `help' command to learn more.".to_string(),
 	self.commands.push(pc);
     }
 
-    pub fn exec(&mut self, cmdstring: String) -> bool{
+    pub fn exec(&mut self, cmdstring: String,
+		swarm: &Swarm<p2p::AppBehaviour>) -> bool{
 	for cmd in self.commands.iter() {
 	    println!("{}\n", cmd.starts_with);
 	    if cmdstring.starts_with(&cmd.starts_with) {
-		cmd.execute(cmdstring);
+		cmd.execute(cmdstring, swarm);
 		return true;
 	    }
 	}
 	return false;
     }
 
-    pub fn exec_noret(&mut self, cmdstring: String) {
+    pub fn exec_noret(&mut self, cmdstring: String,
+		      swarm: &Swarm<p2p::AppBehaviour>) {
 	let c = cmdstring.clone();
-	if !self.exec(cmdstring) {
+	if !self.exec(cmdstring, swarm) {
 	    println!("Unknown command '{}'", c);
 	}
     }
 }
 
 /// A very simple default callback
-pub fn nyi_callback(cmdtext: String) {
+pub fn nyi_callback(cmdtext: String, _swarm: &Swarm<p2p::AppBehaviour>) {
     println!("NYI callback for '{}' command", cmdtext);
 }
 
@@ -87,8 +92,8 @@ impl PromptCommand {
 	}
     }
 
-    pub fn execute(&self, str: String) {
-	(self.callback)(str);
+    pub fn execute(&self, str: String, swarm: &Swarm<p2p::AppBehaviour>) {
+	(self.callback)(str, swarm);
     }
 }
 

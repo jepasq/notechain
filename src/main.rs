@@ -203,13 +203,13 @@ impl App {
 }
 
 /// A very simple default callback
-pub fn quit_callback(_cmdtext: String) {
+pub fn quit_callback(_cmdtext: String, _swarm: &Swarm<p2p::AppBehaviour>) {
     println!("Exitting application...");
     // from https://doc.rust-lang.org/std/process/fn.exit.html
     process::exit(0x0100);
 }
 
-pub fn len_callback(_cmdtext: String) {
+pub fn len_callback(_cmdtext: String, _swarm: &Swarm<p2p::AppBehaviour>) {
     print!("Actual blockchain length in blocks :");
     println!("???");
 }
@@ -333,7 +333,7 @@ async fn main() {
                     cmd if cmd.starts_with("create b") => p2p::handle_create_block(cmd, &mut swarm),
 		 //   cmd if pr.exec(cmd) => ,
 		    //   _ =>  error!("unknown command '{}'", line),
-		    _ =>  pr.exec_noret(line),
+		    _ =>  pr.exec_noret(line, &swarm),
                 },
             }
         }
