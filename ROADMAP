@@ -17,6 +17,7 @@
 Must be saved to disk, add unit tested save and load function
 **** TODO Handle history  
 :LOGBOOK:
+CLOCK: [2023-05-17 mer. 06:38]--[2023-05-17 mer. 06:42] =>  0:04
 CLOCK: [2023-05-10 mer. 11:31]--[2023-05-10 mer. 11:59] =>  0:28
 CLOCK: [2023-05-10 mer. 11:10]--[2023-05-10 mer. 11:19] =>  0:09
 CLOCK: [2023-05-02 mar. 11:53]--[2023-05-02 mar. 12:09] =>  0:16
@@ -25,9 +26,9 @@ CLOCK: [2023-04-10 lun. 11:11]--[2023-04-10 lun. 11:24] =>  0:13
 CLOCK: [2023-04-03 lun. 13:33]--[2023-04-03 lun. 13:45] =>  0:12
 :END:
 - [X] Implement History::len
-- [ ] Add Swarm object as callback parameter
-  - [ ] Make build command work again
-  - [ ] Make test command work again
+- [-] Add Swarm object as callback parameter
+  - [X] Make build command work again
+  - [ ] Make test command work again : need a fake swarm object
     
 - [-] Add a len command to know the number of generated blocks
   - [X] Command and callback created

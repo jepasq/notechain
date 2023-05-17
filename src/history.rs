@@ -14,6 +14,8 @@ impl History {
 	}
     }
 
+    /// Only used in unit tests
+    #[allow(dead_code)]
     pub fn len(&self) -> usize {
 	return self.cmds.len();
     }

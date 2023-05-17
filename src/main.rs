@@ -239,6 +239,9 @@ async fn main() {
     quit_cmd.callback = quit_callback;
     pr.add(quit_cmd);
 
+    // Create the Gistory object
+    let _his = history::History::new();
+
     
     info!("Peer Id: {}", p2p::PEER_ID.clone());
     let (response_sender, mut response_rcv) = mpsc::unbounded_channel();
