@@ -17,6 +17,7 @@
 Must be saved to disk, add unit tested save and load function
 **** TODO Handle history  
 :LOGBOOK:
+CLOCK: [2023-05-26 ven. 02:28]--[2023-05-26 ven. 02:35] =>  0:07
 CLOCK: [2023-05-17 mer. 06:38]--[2023-05-17 mer. 06:42] =>  0:04
 CLOCK: [2023-05-10 mer. 11:31]--[2023-05-10 mer. 11:59] =>  0:28
 CLOCK: [2023-05-10 mer. 11:10]--[2023-05-10 mer. 11:19] =>  0:09
@@ -44,6 +45,7 @@ CLOCK: [2023-04-03 lun. 13:33]--[2023-04-03 lun. 13:45] =>  0:12
   10 Apr. 2023 : multiple updates
   14 Apr. 2023 : multiple updates (serde+ and syn)
   02 May 2023 : multiple updates
+  26 May 2023 : again multiple updates
 **** DONE Add a unit tested prompt struct and file
 :LOGBOOK:
 CLOCK: [2023-03-28 mar. 10:33]--[2023-03-28 mar. 10:44] =>  0:11
