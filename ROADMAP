@@ -15,8 +15,9 @@
 - [ ] Add a help command ?
 **** Blockchain must be persistant
 Must be saved to disk, add unit tested save and load function
-**** TODO Handle history  
+**** TODO [add_swarm_to_UT] Handle history  
 :LOGBOOK:
+CLOCK: [2023-05-26 ven. 04:07]--[2023-05-26 ven. 04:21] =>  0:14
 CLOCK: [2023-05-26 ven. 02:28]--[2023-05-26 ven. 02:35] =>  0:07
 CLOCK: [2023-05-17 mer. 06:38]--[2023-05-17 mer. 06:42] =>  0:04
 CLOCK: [2023-05-10 mer. 11:31]--[2023-05-10 mer. 11:59] =>  0:28

@@ -100,6 +100,15 @@ impl PromptCommand {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    fn get_fake_swarm() -> &Swarm<p2p::AppBehaviour> {
+	let mut swarm = SwarmBuilder::new(transp, behaviour, *p2p::PEER_ID)
+        .executor(Box::new(|fut| {
+            spawn(fut);
+        }))
+            .build();
+	return swarm;
+    }
     
     /// Can instanstiate prompt struct
     #[test]
@@ -199,7 +208,7 @@ mod tests {
 	pc.help_text= "zerzer".to_string();
 
 	// Should return false (not found)
-	assert_eq!(p.exec("RRaze".to_string()), false);
+	assert_eq!(p.exec("RRaze".to_string(), get_fake_swarm()), false);
     }
     
     /// Prompt has an callable intro method
@@ -214,7 +223,7 @@ mod tests {
 	p.add(pc);
 
 	// Should return false
-	assert_eq!(p.exec("tut".to_string()), false);
+	assert_eq!(p.exec("tut".to_string(), get_fake_swarm()), false);
     }
 
     /// Prompt has an callable intro method
@@ -228,8 +237,14 @@ mod tests {
 
 	p.add(pc);
 
+	let mut swarm = SwarmBuilder::new(transp, behaviour, *p2p::PEER_ID)
+        .executor(Box::new(|fut| {
+            spawn(fut);
+        }))
+        .build();
+	
 	// Should return true (starts_with found)
-	assert_eq!(p.exec("aze".to_string()), true);
+	assert_eq!(p.exec("aze".to_string(), get_fake_swarm()), true);
     }
     
 }
