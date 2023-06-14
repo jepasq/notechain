@@ -102,6 +102,21 @@ mod tests {
     use super::*;
 
     fn get_fake_swarm() -> &Swarm<p2p::AppBehaviour> {
+	let (response_sender, mut response_rcv) = mpsc::unbounded_channel();
+	let (init_sender, mut init_rcv) = mpsc::unbounded_channel();
+
+	let auth_keys = Keypair::<X25519Spec>::new()
+            .into_authentic(&p2p::KEYS)
+            .expect("can create auth keys");
+
+	let transp = TokioTcpConfig::new()
+            .upgrade(upgrade::Version::V1)
+            .authenticate(NoiseConfig::xx(auth_keys).into_authenticated())
+            .multiplex(mplex::MplexConfig::new())
+            .boxed();
+	
+	let behaviour = p2p::AppBehaviour::new(App::new(), response_sender, init_sender.clone()).await;
+
 	let mut swarm = SwarmBuilder::new(transp, behaviour, *p2p::PEER_ID)
         .executor(Box::new(|fut| {
             spawn(fut);
@@ -195,7 +210,7 @@ mod tests {
     #[test]
     fn test_prompt_command_has_an_execute_method() {
 	let pc = PromptCommand::new();
-	pc.execute("".to_string());
+	pc.execute("".to_string(), get_fake_swarm());
     }
 
     /// Prompt has an callable intro method

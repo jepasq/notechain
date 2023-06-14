@@ -17,6 +17,7 @@
 Must be saved to disk, add unit tested save and load function
 **** TODO [add_swarm_to_UT] Handle history  
 :LOGBOOK:
+CLOCK: [2023-06-14 mer. 04:42]--[2023-06-14 mer. 04:56] =>  0:14
 CLOCK: [2023-05-26 ven. 04:07]--[2023-05-26 ven. 04:21] =>  0:14
 CLOCK: [2023-05-26 ven. 02:28]--[2023-05-26 ven. 02:35] =>  0:07
 CLOCK: [2023-05-17 mer. 06:38]--[2023-05-17 mer. 06:42] =>  0:04
