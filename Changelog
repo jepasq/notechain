@@ -1,3 +1,13 @@
+* v0.0.0-5 (10 Apr. 2023 - 22 Jun. 2023) SLOC 816
+- get_fake_swarm is not async anymore
+- Another multiple dependencies update
+- Multiple packages update
+- Fix some History-related dead code warning
+- Add swarm parameter and make build command work again
+- Start to implement 'len' command
+- Multiple dependencies update
+- Upgrade some rust dependencies (serde+ and syn)
+
 * v0.0.0-4 (23 Feb. 2023 - 10 Apr. 2023) SLOC 759
 - Update some dependencies using cargo update command
 - Implement History::len and test it

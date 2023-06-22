@@ -6,12 +6,5 @@ notechain - GPLv3 - A blochain-backed note taking application.
     Create a tag and push --tags for each revision
     SLOC is the result of `sloc src/`
 
-* v0.0.0-5 (10 Apr. 2023 - ???) SLOC ???
-- (8) get_fake_swarm is not async anymore
-- Another multiple dependencies update
-- Multiple packages update
-- Fix some History-related dead code warning
-- Add swarm parameter and make build command work again
-- Start to implement 'len' command
-- Multiple dependencies update
-- Upgrade some rust dependencies (serde+ and syn)
+* v0.0.0-5 (22 Jun. 2023 - ???) SLOC ???
+
