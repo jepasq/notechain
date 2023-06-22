@@ -114,15 +114,16 @@ mod tests {
             .authenticate(NoiseConfig::xx(auth_keys).into_authenticated())
             .multiplex(mplex::MplexConfig::new())
             .boxed();
-	
-	let behaviour = p2p::AppBehaviour::new(App::new(), response_sender, init_sender.clone()).await;
+
+	// May add await() at the end if fn is async
+	let behaviour = p2p::AppBehaviour::new(App::new(), response_sender, init_sender.clone());
 
 	let mut swarm = SwarmBuilder::new(transp, behaviour, *p2p::PEER_ID)
         .executor(Box::new(|fut| {
             spawn(fut);
         }))
             .build();
-	return swarm;
+	return &swarm;
     }
     
     /// Can instanstiate prompt struct
