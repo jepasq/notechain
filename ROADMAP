@@ -17,6 +17,7 @@
 Must be saved to disk, add unit tested save and load function
 **** TODO [add_swarm_to_UT] Handle history  
 :LOGBOOK:
+CLOCK: [2023-06-29 jeu. 07:15]--[2023-06-29 jeu. 07:34] =>  0:19
 CLOCK: [2023-06-22 jeu. 03:55]--[2023-06-22 jeu. 04:23] =>  0:28
 CLOCK: [2023-06-14 mer. 04:42]--[2023-06-14 mer. 04:56] =>  0:14
 CLOCK: [2023-05-26 ven. 04:07]--[2023-05-26 ven. 04:21] =>  0:14
@@ -33,7 +34,8 @@ CLOCK: [2023-04-03 lun. 13:33]--[2023-04-03 lun. 13:45] =>  0:12
 - [-] Add Swarm object as callback parameter
   - [X] Make build command work again
   - [ ] Make test command work again : need a fake swarm object
-    
+    - [ ] Now, fake appbehaviour must satisfy the NetworkBehaviour trait
+      
 - [-] Add a len command to know the number of generated blocks
   - [X] Command and callback created
   - [ ] Now, must get this number, maybe through p2p.rs, with a Swarn global

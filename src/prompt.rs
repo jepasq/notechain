@@ -101,7 +101,7 @@ impl PromptCommand {
 mod tests {
     use super::*;
 
-    fn get_fake_swarm() -> &Swarm<p2p::AppBehaviour> {
+    fn get_fake_swarm() -> &'static Swarm<p2p::AppBehaviour> {
 	let (response_sender, mut response_rcv) = mpsc::unbounded_channel();
 	let (init_sender, mut init_rcv) = mpsc::unbounded_channel();
 
@@ -253,11 +253,7 @@ mod tests {
 
 	p.add(pc);
 
-	let mut swarm = SwarmBuilder::new(transp, behaviour, *p2p::PEER_ID)
-        .executor(Box::new(|fut| {
-            spawn(fut);
-        }))
-        .build();
+	let mut swarm = get_fake_swarm();
 	
 	// Should return true (starts_with found)
 	assert_eq!(p.exec("aze".to_string(), get_fake_swarm()), true);
