@@ -15,6 +15,9 @@
 - [ ] Add a help command ?
 **** Blockchain must be persistant
 Must be saved to disk, add unit tested save and load function
+**** Trying to fix github's dependabot issue
+- see https://github.com/jepasq/notechain/security/dependabot
+- [ ] Trying to upgrade libp2p version to 0.45.1 : do not compile anymore
 **** TODO [add_swarm_to_UT] Handle history  
 :LOGBOOK:
 CLOCK: [2023-06-29 jeu. 07:15]--[2023-06-29 jeu. 07:34] =>  0:19
