@@ -101,6 +101,40 @@ impl PromptCommand {
 mod tests {
     use super::*;
 
+    #[derive(NetworkBehaviour)]
+    pub struct TestableBehaviour {
+	pub floodsub: Floodsub,
+	pub mdns: Mdns,
+	#[behaviour(ignore)]
+	pub response_sender: mpsc::UnboundedSender<ChainResponse>,
+	#[behaviour(ignore)]
+	pub init_sender: mpsc::UnboundedSender<bool>,
+	#[behaviour(ignore)]
+	pub app: App,
+    }
+
+    impl AppBehaviour {
+	pub async fn new(
+            response_sender: mpsc::UnboundedSender<ChainResponse>,
+            init_sender: mpsc::UnboundedSender<bool>,
+	) -> Self {
+            let mut behaviour = Self {
+		App::new(),
+		floodsub: Floodsub::new(*PEER_ID),
+		mdns: Mdns::new(Default::default())
+                    .await
+                    .expect("can create mdns"),
+		response_sender,
+		init_sender,
+            };
+            behaviour.floodsub.subscribe(CHAIN_TOPIC.clone());
+            behaviour.floodsub.subscribe(BLOCK_TOPIC.clone());
+	    
+            behaviour
+	}
+    }
+
+    
     fn get_fake_swarm() -> &'static Swarm<p2p::AppBehaviour> {
 	let (response_sender, mut response_rcv) = mpsc::unbounded_channel();
 	let (init_sender, mut init_rcv) = mpsc::unbounded_channel();
@@ -116,7 +150,7 @@ mod tests {
             .boxed();
 
 	// May add await() at the end if fn is async
-	let behaviour = p2p::AppBehaviour::new(App::new(), response_sender, init_sender.clone());
+	let behaviour = TestableBehaviour::new(response_sender, init_sender.clone());
 
 	let mut swarm = SwarmBuilder::new(transp, behaviour, *p2p::PEER_ID)
         .executor(Box::new(|fut| {

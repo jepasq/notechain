@@ -7,4 +7,5 @@ notechain - GPLv3 - A blochain-backed note taking application.
     SLOC is the result of `sloc src/`
 
 * v0.0.0-5 (22 Jun. 2023 - ???) SLOC ???
-- (1) Make get_fake_swarm return a static object
+- (2) Start TestableBehaviour implementation
+- Make get_fake_swarm return a static object
