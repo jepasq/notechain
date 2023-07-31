@@ -113,13 +113,13 @@ mod tests {
 	pub app: App,
     }
 
-    impl AppBehaviour {
+    impl TestableBehaviour {
 	pub async fn new(
             response_sender: mpsc::UnboundedSender<ChainResponse>,
             init_sender: mpsc::UnboundedSender<bool>,
 	) -> Self {
             let mut behaviour = Self {
-		App::new(),
+		app: App::new(),
 		floodsub: Floodsub::new(*PEER_ID),
 		mdns: Mdns::new(Default::default())
                     .await
