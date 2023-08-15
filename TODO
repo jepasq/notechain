@@ -7,6 +7,7 @@ notechain - GPLv3 - A blochain-backed note taking application.
     SLOC is the result of `sloc src/`
 
 * v0.0.0-5 (22 Jun. 2023 - ???) SLOC ???
-- (3) Fix TestableBehaviour constructor with App::new
+- (4) Dependencies update
+- Fix TestableBehaviour constructor with App::new
 - Start TestableBehaviour implementation
 - Make get_fake_swarm return a static object
