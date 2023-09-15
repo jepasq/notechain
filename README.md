@@ -1,4 +1,4 @@
-# nodechain
+# notechain
 
 A blockchain-backed note taking application written in *rust*.
 
