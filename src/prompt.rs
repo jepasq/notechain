@@ -1,5 +1,15 @@
 /// A command-line prompt handling struct
-use libp2p::swarm::Swarm;
+
+use libp2p::{
+    swarm::Swarm,
+    mdns::Mdns,
+};
+use crate::p2p::{
+    BLOCK_TOPIC,
+    CHAIN_TOPIC,
+    PEER_ID,
+    ChainResponse,
+};
 
 use super::*;
 
