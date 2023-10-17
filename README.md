@@ -36,3 +36,12 @@ Actually, the program prompt accepts these commands :
 	ls p            Print discovered peers.
 	ls c            Print the genesis block.
 	create b <data> Create a new block with the given data.
+
+# API documentation
+
+I try to keep up to date the API documentation. You can generate and view
+it in your system browser using :
+
+	cargo doc --open
+	
+	

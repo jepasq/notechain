@@ -27,11 +27,11 @@ pub struct Prompt {
 
 /// A command you can add to the Prompt struct
 pub struct PromptCommand {
-    /// The callback
+    /// The callback executed when the starts_width text is found
     pub callback: Callback,
     /// The text that trigger this command if it starts with this text
     pub starts_with: String,
-    /// The help text
+    /// The help text associated with this command
     pub help_text: String,
 }
 
