@@ -4,7 +4,7 @@ use libp2p::{
     swarm::Swarm,
     mdns::Mdns,
     NetworkBehaviour,
-    floodsub::Floodsub,
+    floodsub::{Floodsub, FloodsubEvent},
     mdns::MdnsEvent,
     swarm::NetworkBehaviourEventProcess,
 };
@@ -153,6 +153,13 @@ mod tests {
 	    // Nothing
 	}
     }
+
+    impl NetworkBehaviourEventProcess<FloodsubEvent> for TestableBehaviour {
+	fn inject_event(&mut self, event: FloodsubEvent) {
+	    // Nothing
+	}
+    }
+
     
     fn get_fake_swarm() -> &'static Swarm<p2p::AppBehaviour> {
 	let (response_sender, mut response_rcv) = mpsc::unbounded_channel();
