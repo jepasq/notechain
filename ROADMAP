@@ -25,8 +25,9 @@ Must be saved to disk, add unit tested save and load function
   If we could upgrade libp2p-noise, maybe we could fix it
 **** TODO Write and generate API documentation
 - Write it using =cargo doc -- open=
-**** TODO [add_swarm_to_UT] Handle history  
+**** [add_swarm_to_UT] Handle history  
 :LOGBOOK:
+CLOCK: [2023-11-02 jeu. 02:57]--[2023-11-02 jeu. 03:00] =>  0:03
 CLOCK: [2023-10-26 jeu. 04:45]--[2023-10-26 jeu. 05:02] =>  0:17
 CLOCK: [2023-10-25 mer. 04:01]--[2023-10-25 mer. 04:27] =>  0:26
 CLOCK: [2023-10-17 mar. 01:49]--[2023-10-17 mar. 02:24] =>  0:35
@@ -47,17 +48,8 @@ CLOCK: [2023-04-14 ven. 13:03]--[2023-04-14 ven. 13:09] =>  0:06
 CLOCK: [2023-04-10 lun. 11:11]--[2023-04-10 lun. 11:24] =>  0:13
 CLOCK: [2023-04-03 lun. 13:33]--[2023-04-03 lun. 13:45] =>  0:12
 :END:
-- [X] Implement History::len
-- [X] Floodsub not found in this scope
-
 - [-] UT still falling : *8 error while building*
-  - [X] unsatisfied trait bounds
-    - =the trait bound `TestableBehaviour: NetworkBehaviourEventProcess<MdnsEvent>`=
-      is not satisfied
-  - [X] Now, implement NetworkBehaviourEventProcess<FloodsubEvent> for
-    TestableBehaviour
   - [ ] And now ?
-
 
 #+BEGIN_EXAMPLE
 note: the following trait bounds were not satisfied:
@@ -68,7 +60,6 @@ note: the following trait bounds were not satisfied:
 #+END_EXAMPLE	    
 
 - [-] Add Swarm object as callback parameter
-  - [X] Make build command work again
   - [ ] Make test command work again : need a fake swarm object
     - [ ] Now, fake appbehaviour must satisfy the NetworkBehaviour trait
       Trying to implement a new TestableBehaviour struct to fake it
@@ -83,13 +74,25 @@ note: the following trait bounds were not satisfied:
   We Need a container with push_front here (either VecDeque or LinkedList)
   - [ ] Test and implement add(String) and list() functions
 
-- [X] Regular call to =cargo update= then tests and run
+- [ ] Regular call to =cargo update= then tests and run
+  02 Nov. 2023 : window -> window-core
+
+**** DONE Swarn UT fix
+- [X] Former call to =cargo update= then tests and run
   10 Apr. 2023 : multiple updates
   14 Apr. 2023 : multiple updates (serde+ and syn)
   02 May 2023 : multiple updates
   26 May 2023 : again multiple updates
   15 Aug. 2023 : multiples updates
   29 Aug. 2023 : multiples updates (addr2line, anyhow, arrayref...)
+- [X] Make build command work again
+- [X] Implement History::len
+- [X] Floodsub not found in this scope
+- [X] unsatisfied trait bounds
+  - =the trait bound `TestableBehaviour: NetworkBehaviourEventProcess<MdnsEvent>`=
+      is not satisfied
+- [X] Now, implement NetworkBehaviourEventProcess<FloodsubEvent> for
+    TestableBehaviour
 **** DONE Add a unit tested prompt struct and file
 :LOGBOOK:
 CLOCK: [2023-03-28 mar. 10:33]--[2023-03-28 mar. 10:44] =>  0:11

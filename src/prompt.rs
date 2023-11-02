@@ -2,17 +2,6 @@
 
 use libp2p::{
     swarm::Swarm,
-    mdns::Mdns,
-    NetworkBehaviour,
-    floodsub::{Floodsub, FloodsubEvent},
-    mdns::MdnsEvent,
-    swarm::NetworkBehaviourEventProcess,
-};
-use crate::p2p::{
-    BLOCK_TOPIC,
-    CHAIN_TOPIC,
-    PEER_ID,
-    ChainResponse,
 };
 
 use super::*;
@@ -113,6 +102,21 @@ impl PromptCommand {
 
 #[cfg(test)]
 mod tests {
+    use libp2p::{
+	mdns::Mdns,
+	NetworkBehaviour,
+	floodsub::{Floodsub, FloodsubEvent},
+	mdns::MdnsEvent,
+	swarm::NetworkBehaviourEventProcess,
+    };
+
+    use crate::p2p::{
+	BLOCK_TOPIC,
+	CHAIN_TOPIC,
+	PEER_ID,
+	ChainResponse,
+    };
+    
     use super::*;
 
     #[derive(NetworkBehaviour)]

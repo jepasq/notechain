@@ -7,7 +7,8 @@ notechain - GPLv3 - A blochain-backed note taking application.
     SLOC is the result of `sloc src/`
 
 * v0.0.0-5 (22 Jun. 2023 - ???) SLOC ???
-- (7) Implements fake MdnsEvent and FloodsubEvent for TestableBehaviour
+- (8) Fix some unused warning in prompt and close a ROADMAP section
+- Implements fake MdnsEvent and FloodsubEvent for TestableBehaviour
 - Fix some test build error in prompt.rs
 - Fix a major typo in app's name in README
 - Dependencies update (x2)
