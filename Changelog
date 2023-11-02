@@ -1,3 +1,13 @@
+* v0.0.0-6 (22 Jun. 2023 - 02 Oct. 2023) SLOC 876
+- Fix some unused warning in prompt and close a ROADMAP section
+- Implements fake MdnsEvent and FloodsubEvent for TestableBehaviour
+- Fix some test build error in prompt.rs
+- Fix a major typo in app's name in README
+- Dependencies update (x2)
+- Fix TestableBehaviour constructor with App::new
+- Start TestableBehaviour implementation
+- Make get_fake_swarm return a static object
+
 * v0.0.0-5 (10 Apr. 2023 - 22 Jun. 2023) SLOC 816
 - get_fake_swarm is not async anymore
 - Another multiple dependencies update
