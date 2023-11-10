@@ -1,3 +1,8 @@
+//! This rust crate implement `notechain` : A blochain-backed note taking
+//! application.
+//!
+//! While the persistence and multi-user approach is handled using a
+//! blockchain, the applicarion itself is currently based on a CLI interface.
 use chrono::Utc;
 use sha2::Sha256;
 use sha2::Digest;
