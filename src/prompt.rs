@@ -3,6 +3,10 @@
 use libp2p::{
     swarm::Swarm,
 };
+use std::{
+    future::Future,
+    task::Poll,
+};
 
 use super::*;
 
@@ -164,6 +168,20 @@ mod tests {
 	}
     }
 
+    
+    impl Future for TestableBehaviour {
+	type Output = ();
+	fn poll(self: Pin<&mut Self>, cx: &mut Context<'_>)
+		-> Poll<Self::Output> {
+
+	}
+    }
+    
+    /* or */ /*
+    impl<T> Future for TestableBehaviour<T> {
+	
+    }
+    */
     
     fn get_fake_swarm() -> &'static Swarm<p2p::AppBehaviour> {
 	let (response_sender, mut response_rcv) = mpsc::unbounded_channel();

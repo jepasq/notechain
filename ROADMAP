@@ -27,6 +27,7 @@ Must be saved to disk, add unit tested save and load function
 - Write it using =cargo doc --open=
 **** TODO [add_swarm_to_UT] Handle history  
 :LOGBOOK:
+CLOCK: [2023-11-24 ven. 03:29]--[2023-11-24 ven. 04:19] =>  0:50
 CLOCK: [2023-11-10 ven. 03:55]--[2023-11-10 ven. 04:29] =>  0:34
 CLOCK: [2023-11-02 jeu. 02:57]--[2023-11-02 jeu. 03:00] =>  0:03
 CLOCK: [2023-10-26 jeu. 04:45]--[2023-10-26 jeu. 05:02] =>  0:17
@@ -58,10 +59,7 @@ CLOCK: [2023-04-03 lun. 13:33]--[2023-04-03 lun. 13:45] =>  0:12
  
 #+BEGIN_EXAMPLE
 note: the following trait bounds were not satisfied:
-   `impl std::future::Future<Output = TestableBehaviour>: NetworkBehaviour`
-   `impl std::future::Future<Output = TestableBehaviour>: std::marker::Send`
-   which is required by `impl std::future::Future<Output = TestableBehaviour>:
-     NetworkBehaviour
+  `impl std::future::Future<Output = TestableBehaviour>: NetworkBehaviour`
 #+END_EXAMPLE	    
 
 - [-] Add Swarm object as callback parameter
