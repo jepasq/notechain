@@ -6,6 +6,8 @@ use libp2p::{
 use std::{
     future::Future,
     task::Poll,
+    task::Context,
+    pin::Pin,
 };
 
 use super::*;
@@ -172,11 +174,15 @@ mod tests {
     impl Future for TestableBehaviour {
 	type Output = ();
 	fn poll(self: Pin<&mut Self>, cx: &mut Context<'_>)
-		-> Poll<Self::Output> {
+		-> Poll<Self::Output> { 
 
 	}
     }
-    
+    /*
+    impl Future<Output = TestableBehaviour> for TestableBehaviour {
+
+    }
+  */  
     /* or */ /*
     impl<T> Future for TestableBehaviour<T> {
 	
