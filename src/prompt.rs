@@ -3,12 +3,6 @@
 use libp2p::{
     swarm::Swarm,
 };
-use std::{
-    future::Future,
-    task::Poll,
-    task::Context,
-    pin::Pin,
-};
 
 use super::*;
 
@@ -115,6 +109,13 @@ mod tests {
 	mdns::MdnsEvent,
 	swarm::NetworkBehaviourEventProcess,
     };
+    
+    use std::{
+	future::Future,
+	task::Poll,
+	task::Context,
+	pin::Pin,
+    };
 
     use crate::p2p::{
 	BLOCK_TOPIC,
@@ -170,12 +171,12 @@ mod tests {
 	}
     }
 
-    
+    /// Trying to implement Future::poll to fix unit tests building issue
     impl Future for TestableBehaviour {
 	type Output = ();
 	fn poll(self: Pin<&mut Self>, cx: &mut Context<'_>)
-		-> Poll<Self::Output> { 
-
+		-> Poll<Self::Output> {
+	    Poll::Ready(())
 	}
     }
     /*

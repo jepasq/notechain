@@ -25,8 +25,13 @@ Must be saved to disk, add unit tested save and load function
   If we could upgrade libp2p-noise, maybe we could fix it
 **** TODO Write and generate API documentation
 - Write it using =cargo doc --open=
+**** TODO Regular call to =cargo update= then tests and run
+- 02 Nov. 2023 : window -> window-core
+- 11 Dec. 2023 : event-listener, getrandom and more
+  
 **** TODO [add_swarm_to_UT] Handle history  
 :LOGBOOK:
+CLOCK: [2023-12-11 lun. 10:19]--[2023-12-11 lun. 10:33] =>  0:14
 CLOCK: [2023-12-04 lun. 07:09]--[2023-12-04 lun. 08:00] =>  0:51
 CLOCK: [2023-11-24 ven. 03:29]--[2023-11-24 ven. 04:19] =>  0:50
 CLOCK: [2023-11-10 ven. 03:55]--[2023-11-10 ven. 04:29] =>  0:34
@@ -53,7 +58,8 @@ CLOCK: [2023-04-03 lun. 13:33]--[2023-04-03 lun. 13:45] =>  0:12
 :END:
 - [-] UT still falling : *3 error while building*
   - [ ] fn poll : =expected `Poll<()>`, found `()`=
- 
+    TestableBehavior::poll should return something
+    
 #+BEGIN_EXAMPLE
 note: the following trait bounds were not satisfied:
   `impl std::future::Future<Output = TestableBehaviour>: NetworkBehaviour`
@@ -73,9 +79,6 @@ note: the following trait bounds were not satisfied:
 - [ ] May handle history of previous commands
   We Need a container with push_front here (either VecDeque or LinkedList)
   - [ ] Test and implement add(String) and list() functions
-
-- [ ] Regular call to =cargo update= then tests and run
-  02 Nov. 2023 : window -> window-core
 
 **** DONE Swarn UT fix
 - [X] Former call to =cargo update= then tests and run
