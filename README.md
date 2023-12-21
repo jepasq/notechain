@@ -12,6 +12,10 @@ At least in *emacs* 28 or if [melpa](https://melpa.org/
 	
 # Building on Manjaro
 
+This project uses the default rust build management system : 
+[cargo](https://doc.rust-lang.org/cargo/). To install it on arch/manjaro and 
+buid project, run these commands :
+
 	sudo pacman -Sy rust
 	cargo build
 

@@ -205,7 +205,8 @@ mod tests {
             .boxed();
 
 	// May add await() at the end if fn is async
-	let behaviour = TestableBehaviour::new(response_sender, init_sender.clone());
+	let behaviour = TestableBehaviour::new(response_sender,
+					       init_sender.clone());
 
 	let mut swarm = SwarmBuilder::new(transp, behaviour, *p2p::PEER_ID)
         .executor(Box::new(|fut| {
@@ -213,6 +214,7 @@ mod tests {
         }))
             .build();
 	return &swarm;
+	
     }
     
     /// Can instanstiate prompt struct
