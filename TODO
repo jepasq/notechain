@@ -7,7 +7,8 @@ notechain - GPLv3 - A blochain-backed note taking application.
     SLOC is the result of `sloc src/`
 
 * v0.0.0-7 (02 Oct. 2023 - ???) SLOC ???
-- (4) Upgrade some dependencies (getrandom, anyhow, event-listener and others)
+- (5) More dependencies upgrade (chrono, hermit, hex and others)
+- Upgrade some dependencies (getrandom, anyhow, event-listener and others)
 - Add TestableBehavior::poll return value and deps update
 - Trying to implement Future trait for TestableBehaviour
 - Add a crate documentation block
