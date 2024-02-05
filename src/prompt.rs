@@ -211,10 +211,8 @@ mod tests {
 	let mut swarm = SwarmBuilder::new(transp, behaviour, *p2p::PEER_ID)
         .executor(Box::new(|fut| {
             spawn(fut);
-        }))
-            .build();
+        })).build();
 	return &swarm;
-	
     }
     
     /// Can instanstiate prompt struct

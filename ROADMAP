@@ -26,9 +26,12 @@ Must be saved to disk, add unit tested save and load function
 **** TODO Write and generate API documentation
 - Write it using =cargo doc --open=
 **** TODO Regular call to =cargo update= then tests and run
+:LOGBOOK:
+CLOCK: [2024-02-05 lun. 16:02]--[2024-02-05 lun. 16:19] =>  0:17
+:END:
 - 02 Nov. 2023 : window -> window-core
 - 11 Dec. 2023 : event-listener, getrandom and more
-  
+- 05 Feb. 2023 : async-*, libc, libp2p and more
 **** TODO [add_swarm_to_UT] Handle history  
 :LOGBOOK:
 CLOCK: [2024-01-25 jeu. 14:06]--[2024-01-25 jeu. 14:44] =>  0:38
@@ -58,6 +61,11 @@ CLOCK: [2023-04-14 ven. 13:03]--[2023-04-14 ven. 13:09] =>  0:06
 CLOCK: [2023-04-10 lun. 11:11]--[2023-04-10 lun. 11:24] =>  0:13
 CLOCK: [2023-04-03 lun. 13:33]--[2023-04-03 lun. 13:45] =>  0:12
 :END:
+- [X] Add Swarm object as callback parameter
+  - [X] Make test command work again : need a fake swarm object
+    - [X] Now, fake appbehaviour must satisfy the NetworkBehaviour trait
+      Trying to implement a new TestableBehaviour struct to fake it
+
 - [-] UT still falling : *2 error while building*
   - [ ] fn poll : =expected `Poll<()>`, found `()`=
     TestableBehavior::poll should return something
@@ -69,11 +77,6 @@ note: the following trait bounds were not satisfied:
   `impl std::future::Future<Output = TestableBehaviour>: NetworkBehaviour`
 #+END_EXAMPLE	    
 
-- [-] Add Swarm object as callback parameter
-  - [ ] Make test command work again : need a fake swarm object
-    - [ ] Now, fake appbehaviour must satisfy the NetworkBehaviour trait
-      Trying to implement a new TestableBehaviour struct to fake it
-      
 - [-] Add a len command to know the number of generated blocks
   - [X] Command and callback created
   - [ ] Now, must get this number, maybe through p2p.rs, with a Swarn global
