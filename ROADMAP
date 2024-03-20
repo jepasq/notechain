@@ -27,6 +27,7 @@ Must be saved to disk, add unit tested save and load function
 - Write it using =cargo doc --open=
 **** TODO Regular call to =cargo update= then tests and run
 :LOGBOOK:
+CLOCK: [2024-03-20 mer. 06:01]--[2024-03-20 mer. 06:12] =>  0:11
 CLOCK: [2024-02-26 lun. 03:17]--[2024-02-26 lun. 03:22] =>  0:05
 CLOCK: [2024-02-05 lun. 16:02]--[2024-02-05 lun. 16:19] =>  0:17
 :END:
@@ -34,7 +35,8 @@ CLOCK: [2024-02-05 lun. 16:02]--[2024-02-05 lun. 16:19] =>  0:17
 - 11 Dec. 2023 : event-listener, getrandom and more
 - 05 Feb. 2024 : async-*, libc, libp2p and more
 - 26 Feb. 2024 : ahash, anyhow and more
-**** TODO [add_swarm_to_UT] Handle history  
+- 20 Mar. 2024 : anyhow, syn, futures-lite and more  
+**** TODO Handle history  
 :LOGBOOK:
 CLOCK: [2024-01-25 jeu. 14:06]--[2024-01-25 jeu. 14:44] =>  0:38
 CLOCK: [2023-12-21 jeu. 09:20]--[2023-12-21 jeu. 09:40] =>  0:20
@@ -68,7 +70,8 @@ CLOCK: [2023-04-03 lun. 13:33]--[2023-04-03 lun. 13:45] =>  0:12
     - [X] Now, fake appbehaviour must satisfy the NetworkBehaviour trait
       Trying to implement a new TestableBehaviour struct to fake it
 
-- [-] UT still falling : *2 error while building*
+- [-] UT still falling : *2 error while building* due to thr add of a swarm
+  parameter
   - [ ] fn poll : =expected `Poll<()>`, found `()`=
     TestableBehavior::poll should return something
     Some errors have detailed explanations: E0277, E0599.
