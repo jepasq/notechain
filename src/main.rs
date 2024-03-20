@@ -214,9 +214,9 @@ pub fn quit_callback(_cmdtext: String, _swarm: &Swarm<p2p::AppBehaviour>) {
     process::exit(0x0100);
 }
 
-pub fn len_callback(_cmdtext: String, _swarm: &Swarm<p2p::AppBehaviour>) {
-    print!("Actual blockchain length in blocks :");
-    println!("???");
+pub fn len_callback(_cmdtext: String, swarm: &Swarm<p2p::AppBehaviour>) {
+    let len = &swarm.behaviour().app.blocks.len();
+    println!("Actual blockchain length in blocks : {}", len);
 }
 
 

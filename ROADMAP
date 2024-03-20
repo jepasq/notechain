@@ -36,8 +36,9 @@ CLOCK: [2024-02-05 lun. 16:02]--[2024-02-05 lun. 16:19] =>  0:17
 - 05 Feb. 2024 : async-*, libc, libp2p and more
 - 26 Feb. 2024 : ahash, anyhow and more
 - 20 Mar. 2024 : anyhow, syn, futures-lite and more  
-**** TODO Handle history  
+**** TODO Handle history
 :LOGBOOK:
+CLOCK: [2024-03-20 mer. 08:07]--[2024-03-20 mer. 08:14] =>  0:07
 CLOCK: [2024-01-25 jeu. 14:06]--[2024-01-25 jeu. 14:44] =>  0:38
 CLOCK: [2023-12-21 jeu. 09:20]--[2023-12-21 jeu. 09:40] =>  0:20
 CLOCK: [2023-12-11 lun. 10:19]--[2023-12-11 lun. 10:33] =>  0:14
@@ -69,6 +70,10 @@ CLOCK: [2023-04-03 lun. 13:33]--[2023-04-03 lun. 13:45] =>  0:12
   - [X] Make test command work again : need a fake swarm object
     - [X] Now, fake appbehaviour must satisfy the NetworkBehaviour trait
       Trying to implement a new TestableBehaviour struct to fake it
+- [X] Add a len command to know the number of generated blocks
+  - [X] Command and callback created
+  - [X] Now, must get this number, maybe through p2p.rs, with a Swarn global
+    variables ? or maybe pass Swarm object as parameter of command exec ?
 
 - [-] UT still falling : *2 error while building* due to thr add of a swarm
   parameter
@@ -82,10 +87,6 @@ note: the following trait bounds were not satisfied:
   `impl std::future::Future<Output = TestableBehaviour>: NetworkBehaviour`
 #+END_EXAMPLE	    
 
-- [-] Add a len command to know the number of generated blocks
-  - [X] Command and callback created
-  - [ ] Now, must get this number, maybe through p2p.rs, with a Swarn global
-    variables ? or maybe pass Swarm object as parameter of command exec ?
 - [ ] =ls c= doesn't only show genesis block, it seems to print complete chain
 - [ ] The =prompt::tests::test_prompt_exec_method_found_true= test fails
 - [ ] May handle history of previous commands
