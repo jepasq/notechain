@@ -1,3 +1,13 @@
+* v0.0.0-7 (02 Oct. 2023 - 01 Apr. 2024) SLOC 928
+- Add the history handling callback function and command object
+- Upgrade several dependencies (event-listener-strategy, async-* and more)
+- Implement len command
+- More dependencies upgrade (chrono, hermit, hex and others) (x2)
+- Upgrade some dependencies (getrandom, anyhow, event-listener and others)
+- Add TestableBehavior::poll return value and deps update
+- Trying to implement Future trait for TestableBehaviour
+- Add a crate documentation block
+
 * v0.0.0-6 (22 Jun. 2023 - 02 Oct. 2023) SLOC 876
 - Fix some unused warning in prompt and close a ROADMAP section
 - Implements fake MdnsEvent and FloodsubEvent for TestableBehaviour
