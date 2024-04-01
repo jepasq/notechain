@@ -39,6 +39,10 @@ mod history;
 const GENHASH:
     &str = "0000f816a87f806bb0073dcf026a64fb40c946b5abee2573702828694d5b4c43";
 
+// Create the History object
+//static mut his: history::History = history::History::new();
+
+
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Block {
     pub id: u64,
@@ -219,6 +223,10 @@ pub fn len_callback(_cmdtext: String, swarm: &Swarm<p2p::AppBehaviour>) {
     println!("Actual blockchain length in blocks : {}", len);
 }
 
+pub fn hist_callback(_cmdtext: String, _swarm: &Swarm<p2p::AppBehaviour>) {
+//    his.print();
+}
+
 
 #[tokio::main]
 async fn main() {
@@ -235,6 +243,14 @@ async fn main() {
 	.to_string();
     len_cmd.callback = len_callback;
     pr.add(len_cmd);
+
+    // Create and add the quit command
+    let mut hist_cmd = prompt::PromptCommand::new();
+    hist_cmd.starts_with= "hist".to_string();
+    hist_cmd.help_text= "print the latest used commands"
+	.to_string();
+    hist_cmd.callback = hist_callback;
+    pr.add(hist_cmd);
     
     // Create and add the quit command
     let mut quit_cmd = prompt::PromptCommand::new();
@@ -244,8 +260,6 @@ async fn main() {
     quit_cmd.callback = quit_callback;
     pr.add(quit_cmd);
 
-    // Create the Gistory object
-    let _his = history::History::new();
 
     
     info!("Peer Id: {}", p2p::PEER_ID.clone());

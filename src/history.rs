@@ -19,6 +19,14 @@ impl History {
     pub fn len(&self) -> usize {
 	return self.cmds.len();
     }
+
+    /// Print the current history decque
+    pub fn print(&self) {
+	for (idx, cmd) in self.cmds.iter().enumerate() {
+	    println!("  {}  {}", idx, cmd);
+	}
+    }
+
 }
 
 #[cfg(test)]
