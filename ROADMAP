@@ -35,7 +35,8 @@ CLOCK: [2024-02-05 lun. 16:02]--[2024-02-05 lun. 16:19] =>  0:17
 - 11 Dec. 2023 : event-listener, getrandom and more
 - 05 Feb. 2024 : async-*, libc, libp2p and more
 - 26 Feb. 2024 : ahash, anyhow and more
-- 20 Mar. 2024 : anyhow, syn, futures-lite and more  
+- 20 Mar. 2024 : anyhow, syn, futures-lite and more
+- 01 Apr. 2024 : event-listener-strategy, async-executor, async-trait and more
 **** TODO Handle history
 :LOGBOOK:
 CLOCK: [2024-03-20 mer. 08:07]--[2024-03-20 mer. 08:14] =>  0:07
