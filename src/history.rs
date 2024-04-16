@@ -8,6 +8,7 @@ pub struct History {
 }
 
 impl History {
+    #[allow(dead_code)]
     pub fn new() -> Self {
         Self {
 	    cmds: VecDeque::new()
@@ -21,6 +22,7 @@ impl History {
     }
 
     /// Print the current history decque
+    #[allow(dead_code)]
     pub fn print(&self) {
 	for (idx, cmd) in self.cmds.iter().enumerate() {
 	    println!("  {}  {}", idx, cmd);

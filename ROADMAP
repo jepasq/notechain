@@ -27,16 +27,20 @@ Must be saved to disk, add unit tested save and load function
 - Write it using =cargo doc --open=
 **** TODO Regular call to =cargo update= then tests and run
 :LOGBOOK:
+CLOCK: [2024-04-16 mar. 11:07]--[2024-04-16 mar. 11:15] =>  0:08
 CLOCK: [2024-03-20 mer. 06:01]--[2024-03-20 mer. 06:12] =>  0:11
 CLOCK: [2024-02-26 lun. 03:17]--[2024-02-26 lun. 03:22] =>  0:05
 CLOCK: [2024-02-05 lun. 16:02]--[2024-02-05 lun. 16:19] =>  0:17
 :END:
+Even if tests are actually failing
+
 - 02 Nov. 2023 : window -> window-core
 - 11 Dec. 2023 : event-listener, getrandom and more
 - 05 Feb. 2024 : async-*, libc, libp2p and more
 - 26 Feb. 2024 : ahash, anyhow and more
 - 20 Mar. 2024 : anyhow, syn, futures-lite and more
 - 01 Apr. 2024 : event-listener-strategy, async-executor, async-trait and more
+- 16 Apr. 2024 : windows_*, event-listener, pest, cc, async- and more
 **** TODO Handle history
 :LOGBOOK:
 CLOCK: [2024-04-01 lun. 04:11]--[2024-04-01 lun. 04:43] =>  0:32
