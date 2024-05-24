@@ -2,6 +2,7 @@ use std::collections::VecDeque;
 //use std::iter::FromIterator;
     
 /// The prompt history
+#[derive(Debug)]
 pub struct History {
     /// The list of issued commands
     cmds: VecDeque<String>, 
@@ -45,7 +46,6 @@ mod tests {
     fn test_len() {
 	let h = History::new();
 	assert_eq!(h.len(), 0);
-	
     }
 
 }

@@ -39,10 +39,6 @@ mod history;
 const GENHASH:
     &str = "0000f816a87f806bb0073dcf026a64fb40c946b5abee2573702828694d5b4c43";
 
-// Create the History object
-//static mut his: history::History = history::History::new();
-
-
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Block {
     pub id: u64,
@@ -115,11 +111,15 @@ fn mine_block(id: u64, timestamp: i64, previous_hash: &str, data: &str) -> (u64,
 #[derive(Debug)]
 pub struct App {
     pub blocks: Vec<Block>,
+    pub history: history::History,
 }
 
 impl App {
     fn new() -> Self {
-        Self { blocks: vec![] }
+        Self {
+	    blocks: vec![],
+	    history: history::History::new()
+	}
     }
 
     fn genesis(&mut self) {
@@ -223,8 +223,11 @@ pub fn len_callback(_cmdtext: String, swarm: &Swarm<p2p::AppBehaviour>) {
     println!("Actual blockchain length in blocks : {}", len);
 }
 
-pub fn hist_callback(_cmdtext: String, _swarm: &Swarm<p2p::AppBehaviour>) {
+pub fn hist_callback(_cmdtext: String, swarm: &Swarm<p2p::AppBehaviour>) {
 //    his.print();
+    let len = &swarm.behaviour().app.history.len();
+    println!("History length : {}\n", len);
+    swarm.behaviour().app.history.print();
 }
 
 
@@ -247,7 +250,7 @@ async fn main() {
     // Create and add the quit command
     let mut hist_cmd = prompt::PromptCommand::new();
     hist_cmd.starts_with= "hist".to_string();
-    hist_cmd.help_text= "print the latest used commands"
+    hist_cmd.help_text= "print the last used commands"
 	.to_string();
     hist_cmd.callback = hist_callback;
     pr.add(hist_cmd);
@@ -259,8 +262,6 @@ async fn main() {
 	.to_string();
     quit_cmd.callback = quit_callback;
     pr.add(quit_cmd);
-
-
     
     info!("Peer Id: {}", p2p::PEER_ID.clone());
     let (response_sender, mut response_rcv) = mpsc::unbounded_channel();
@@ -350,7 +351,7 @@ async fn main() {
                 }
                 p2p::EventType::Input(line) => match line.as_str() {
                     "ls p" => p2p::handle_print_peers(&swarm),
-		    cmd if cmd.starts_with("h") => pr.help(),
+		    cmd if cmd.starts_with("hel") => pr.help(),
                     cmd if cmd.starts_with("ls c") => p2p::handle_print_chain(&swarm),
                     cmd if cmd.starts_with("create b") => p2p::handle_create_block(cmd, &mut swarm),
 		 //   cmd if pr.exec(cmd) => ,
