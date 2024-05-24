@@ -224,7 +224,6 @@ pub fn len_callback(_cmdtext: String, swarm: &Swarm<p2p::AppBehaviour>) {
 }
 
 pub fn hist_callback(_cmdtext: String, swarm: &Swarm<p2p::AppBehaviour>) {
-//    his.print();
     let len = &swarm.behaviour().app.history.len();
     println!("History length : {}\n", len);
     swarm.behaviour().app.history.print();
@@ -351,12 +350,23 @@ async fn main() {
                 }
                 p2p::EventType::Input(line) => match line.as_str() {
                     "ls p" => p2p::handle_print_peers(&swarm),
-		    cmd if cmd.starts_with("hel") => pr.help(),
-                    cmd if cmd.starts_with("ls c") => p2p::handle_print_chain(&swarm),
-                    cmd if cmd.starts_with("create b") => p2p::handle_create_block(cmd, &mut swarm),
-		 //   cmd if pr.exec(cmd) => ,
-		    //   _ =>  error!("unknown command '{}'", line),
-		    _ =>  pr.exec_noret(line, &swarm),
+		    cmd if cmd.starts_with("hel") => {
+			swarm.behaviour_mut().app.history.add_command(line);
+			pr.help()
+		    },
+                    cmd if cmd.starts_with("ls c") => {
+			swarm.behaviour_mut().app.history.add_command(line);
+			p2p::handle_print_chain(&swarm)
+		    },
+                    cmd if cmd.starts_with("create b") => {
+			swarm.behaviour_mut().app.history.add_command(line.clone());
+			p2p::handle_create_block(cmd, &mut swarm)
+		    },
+		    _ =>  {
+			pr.exec_noret(line.clone(), &swarm);
+			swarm.behaviour_mut().app.history.add_command(line)
+		    }
+			
                 },
             }
         }

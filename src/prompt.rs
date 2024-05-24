@@ -160,13 +160,13 @@ mod tests {
     }
 
     impl NetworkBehaviourEventProcess<MdnsEvent> for TestableBehaviour {
-	fn inject_event(&mut self, event: MdnsEvent) {
+	fn inject_event(&mut self, _event: MdnsEvent) {
 	    // Nothing
 	}
     }
 
     impl NetworkBehaviourEventProcess<FloodsubEvent> for TestableBehaviour {
-	fn inject_event(&mut self, event: FloodsubEvent) {
+	fn inject_event(&mut self, _event: FloodsubEvent) {
 	    // Nothing
 	}
     }
@@ -174,7 +174,7 @@ mod tests {
     /// Trying to implement Future::poll to fix unit tests building issue
     impl Future for TestableBehaviour {
 	type Output = ();
-	fn poll(self: Pin<&mut Self>, cx: &mut Context<'_>)
+	fn poll(self: Pin<&mut Self>, _cx: &mut Context<'_>)
 		-> Poll<Self::Output> {
 	    Poll::Ready(())
 	}
@@ -342,7 +342,7 @@ mod tests {
 
 	p.add(pc);
 
-	let mut swarm = get_fake_swarm();
+	//	let swarm = get_fake_swarm();
 	
 	// Should return true (starts_with found)
 	assert_eq!(p.exec("aze".to_string(), get_fake_swarm()), true);

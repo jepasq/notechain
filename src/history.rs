@@ -22,6 +22,10 @@ impl History {
 	return self.cmds.len();
     }
 
+    pub fn add_command(&mut self, command: String)  {
+	self.cmds.push_back(command);
+    }
+
     /// Print the current history decque
     #[allow(dead_code)]
     pub fn print(&self) {
@@ -48,4 +52,13 @@ mod tests {
 	assert_eq!(h.len(), 0);
     }
 
+    #[test]
+    fn test_add_command() {
+	let mut h = History::new();
+	let l1 = h.len();
+	h.add_command(String::from("aze"));
+	assert_eq!(h.len(), l1 + 1);
+    }
+
+    
 }
