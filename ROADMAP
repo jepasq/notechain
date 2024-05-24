@@ -27,6 +27,7 @@ Must be saved to disk, add unit tested save and load function
 - Write it using =cargo doc --open=
 **** TODO Regular call to =cargo update= then tests and run
 :LOGBOOK:
+CLOCK: [2024-05-24 ven. 14:43]--[2024-05-24 ven. 14:56] =>  0:13
 CLOCK: [2024-05-09 jeu. 17:47]--[2024-05-09 jeu. 17:59] =>  0:12
 CLOCK: [2024-04-16 mar. 11:07]--[2024-04-16 mar. 11:15] =>  0:08
 CLOCK: [2024-03-20 mer. 06:01]--[2024-03-20 mer. 06:12] =>  0:11
@@ -43,6 +44,7 @@ Even if tests are actually failing
 - 01 Apr. 2024 : event-listener-strategy, async-executor, async-trait and more
 - 16 Apr. 2024 : windows_*, event-listener, pest, cc, async- and more
 - 09 May 2024 : libp2p*, snow, libc and many more
+- 24 May 2024 : anyhow*, cc, libc, serde, serde_derive, syn, thiserror
 **** TODO Handle history
 :LOGBOOK:
 CLOCK: [2024-04-01 lun. 04:11]--[2024-04-01 lun. 04:43] =>  0:32
