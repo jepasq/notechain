@@ -63,7 +63,7 @@ use `help' command to learn more.".to_string(),
     pub fn exec(&mut self, cmdstring: String,
 		swarm: &Swarm<p2p::AppBehaviour>) -> bool{
 	for cmd in self.commands.iter() {
-	    println!("{}\n", cmd.starts_with);
+	    //println!("{}\n", cmd.starts_with);
 	    if cmdstring.starts_with(&cmd.starts_with) {
 		cmd.execute(cmdstring, swarm);
 		return true;

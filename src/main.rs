@@ -359,7 +359,8 @@ async fn main() {
 			p2p::handle_print_chain(&swarm)
 		    },
                     cmd if cmd.starts_with("create b") => {
-			swarm.behaviour_mut().app.history.add_command(line.clone());
+			swarm.behaviour_mut().app.history
+			    .add_command(line.clone());
 			p2p::handle_create_block(cmd, &mut swarm)
 		    },
 		    _ =>  {

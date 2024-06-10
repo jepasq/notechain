@@ -49,6 +49,7 @@ Even if tests are actually failing
 - 10 Jun. 2024 : async*, cc, regex*, serde and more
 **** TODO Handle history
 :LOGBOOK:
+CLOCK: [2024-06-10 lun. 03:38]--[2024-06-10 lun. 03:54] =>  0:16
 CLOCK: [2024-05-24 ven. 16:05]--[2024-05-24 ven. 16:38] =>  0:33
 CLOCK: [2024-05-24 ven. 15:13]--[2024-05-24 ven. 15:47] =>  0:34
 CLOCK: [2024-04-01 lun. 04:11]--[2024-04-01 lun. 04:43] =>  0:32
@@ -90,14 +91,14 @@ CLOCK: [2023-04-03 lun. 13:33]--[2023-04-03 lun. 13:45] =>  0:12
     variables ? or maybe pass Swarm object as parameter of command exec ?
 - [X] Now, we need a static History object in main.rs
   Try to add it to App object to get it through the behavior
-
-- [ ] Now, we must add all commands to App.history object instance
+- [X] Now, we must add all commands to App.history object instance
   Be sure we need a String object, not a &str : it's a String object
   - =ls p= command not added
+- [X] Add a log to create b command to let the user know it worked
 
 - [ ] It writes len and history word for each commands, why ?
 
-- [ ] A :<number> command could call the nth one
+- [ ] A !<number> command could call the nth one
   
   
 - [ ] UT still falling : *2 error while building* due to thr add of a swarm

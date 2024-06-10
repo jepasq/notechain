@@ -161,5 +161,6 @@ pub fn handle_create_block(cmd: &str, swarm: &mut Swarm<AppBehaviour>) {
         behaviour
             .floodsub
             .publish(BLOCK_TOPIC.clone(), json.as_bytes());
+	println!("  Block succefully created : (data: '{}')", data);
     }
 }
