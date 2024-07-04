@@ -11,7 +11,8 @@ type Callback = fn(String, swarm: &Swarm<p2p::AppBehaviour>);
 
 /// The full prompt object used to handle user input. You should have only one.
 pub struct Prompt {
-     /// The text printed at the start of each line
+    /// The text printed at the start of each line
+    #[allow(dead_code)]
     pub text: String, 
     pub intro_text: String,
     pub help_text: String,
