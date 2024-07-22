@@ -7,7 +7,7 @@ notechain - GPLv3 - A blochain-backed note taking application.
     SLOC is the result of `sloc src/`
 
 * v0.0.0-8 (01 Apr. 2024 - ???) SLOC ???
-- (7) Upgrade multiple deps including aes-gcm, backtrace, bitflags 
+- Upgrade multiple deps including aes-gcm, backtrace, bitflags 
 - Add a log to create b command to let the user know it worked
 - Dependencies upgrade async*, cc, regex*, serde and more
 - Actually add typed commands to App History member

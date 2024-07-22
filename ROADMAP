@@ -49,6 +49,7 @@ Even if tests are actually failing
 - 24 May 2024 : anyhow*, cc, libc, serde, serde_derive, syn, thiserror
 - 10 Jun. 2024 : async*, cc, regex*, serde and more
 - 04 Jul. 2024 : aes-gcm, backtrace, bitflags, cc, cfg-if etx...
+- 22 Jul. 2024 : 12 packages to latest compatible versions  
 **** TODO Handle history
 :LOGBOOK:
 CLOCK: [2024-06-10 lun. 03:38]--[2024-06-10 lun. 03:54] =>  0:16
