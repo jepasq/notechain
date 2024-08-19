@@ -229,6 +229,18 @@ pub fn hist_callback(_cmdtext: String, swarm: &Swarm<p2p::AppBehaviour>) {
     swarm.behaviour().app.history.print();
 }
 
+pub fn nth_callback(cmdtext: String, swarm: &Swarm<p2p::AppBehaviour>) {
+    let hst = &swarm.behaviour().app.history;
+    let mut s = cmdtext.clone();
+    if s.len() > 0 {
+	s.remove(0); // remove first (should be '!' char)
+    }
+    let nth = s.parse::<i32>().unwrap();
+    println!("Calling {}th command : {}\n", nth, "aze");
+    swarm.behaviour().app.history.print();
+}
+
+
 
 #[tokio::main]
 async fn main() {
@@ -253,6 +265,14 @@ async fn main() {
 	.to_string();
     hist_cmd.callback = hist_callback;
     pr.add(hist_cmd);
+
+    // Create and add the positional arg command
+    let mut nth_cmd = prompt::PromptCommand::new();
+    nth_cmd.starts_with= "!".to_string();
+    nth_cmd.help_text= "re-execute nth command from history"
+	.to_string();
+    nth_cmd.callback = nth_callback;
+    pr.add(nth_cmd);
     
     // Create and add the quit command
     let mut quit_cmd = prompt::PromptCommand::new();
@@ -261,6 +281,7 @@ async fn main() {
 	.to_string();
     quit_cmd.callback = quit_callback;
     pr.add(quit_cmd);
+
     
     info!("Peer Id: {}", p2p::PEER_ID.clone());
     let (response_sender, mut response_rcv) = mpsc::unbounded_channel();

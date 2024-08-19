@@ -54,6 +54,7 @@ Even if tests are actually failing
 - 19 aug. 2024 : async-io, syn, bytes, cc and others
 **** TODO Handle history
 :LOGBOOK:
+CLOCK: [2024-08-19 lun. 10:32]--[2024-08-19 lun. 10:45] =>  0:13
 CLOCK: [2024-06-10 lun. 03:38]--[2024-06-10 lun. 03:54] =>  0:16
 CLOCK: [2024-05-24 ven. 16:05]--[2024-05-24 ven. 16:38] =>  0:33
 CLOCK: [2024-05-24 ven. 15:13]--[2024-05-24 ven. 15:47] =>  0:34
@@ -100,11 +101,12 @@ CLOCK: [2023-04-03 lun. 13:33]--[2023-04-03 lun. 13:45] =>  0:12
   Be sure we need a String object, not a &str : it's a String object
   - =ls p= command not added
 - [X] Add a log to create b command to let the user know it worked
-
-- [ ] It writes len and history word for each commands, why ?
+- [X] It writes len and history word for each commands, why ?
 
 - [ ] A !<number> command could call the nth one
-  
+
+- [ ] Up/down arrow could be used to naigate commands
+
   
 - [ ] UT still falling : *2 error while building* due to thr add of a swarm
   parameter
