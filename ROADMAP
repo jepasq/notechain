@@ -27,6 +27,7 @@ Must be saved to disk, add unit tested save and load function
 - Write it using =cargo doc --open=
 **** TODO Regular call to =cargo update= then tests and run
 :LOGBOOK:
+CLOCK: [2024-08-19 lun. 09:36]--[2024-08-19 lun. 09:41] =>  0:05
 CLOCK: [2024-07-04 jeu. 04:21]--[2024-07-04 jeu. 04:31] =>  0:10
 CLOCK: [2024-06-10 lun. 02:49]--[2024-06-10 lun. 03:00] =>  0:11
 CLOCK: [2024-05-24 ven. 14:43]--[2024-05-24 ven. 14:56] =>  0:13
@@ -49,7 +50,8 @@ Even if tests are actually failing
 - 24 May 2024 : anyhow*, cc, libc, serde, serde_derive, syn, thiserror
 - 10 Jun. 2024 : async*, cc, regex*, serde and more
 - 04 Jul. 2024 : aes-gcm, backtrace, bitflags, cc, cfg-if etx...
-- 22 Jul. 2024 : 12 packages to latest compatible versions  
+- 22 Jul. 2024 : 12 packages to latest compatible versions
+- 19 aug. 2024 : async-io, syn, bytes, cc and others
 **** TODO Handle history
 :LOGBOOK:
 CLOCK: [2024-06-10 lun. 03:38]--[2024-06-10 lun. 03:54] =>  0:16
