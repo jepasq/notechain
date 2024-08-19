@@ -1,3 +1,13 @@
+* v0.0.0-8 (01 Apr. 2024 - 19 Aug. 2024) SLOC 957
+- More deps upgrade (async-io, syn, bytes, cc and others)
+- Upgrade multiple deps including aes-gcm, backtrace, bitflags
+- Add a log to create b command to let the user know it worked
+- Dependencies upgrade async*, cc, regex*, serde and more
+- Actually add typed commands to App History member
+- App has now an History instance member
+- Another dep update sesion anyhow*, cc, libc, serde, serde_derive, syn...
+- Dependencies upgrade windows_*, event-listener, pest, cc, async- and more
+
 * v0.0.0-7 (02 Oct. 2023 - 01 Apr. 2024) SLOC 928
 - Add the history handling callback function and command object
 - Upgrade several dependencies (event-listener-strategy, async-* and more)
