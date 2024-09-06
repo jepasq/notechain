@@ -269,6 +269,7 @@ async fn main() {
     // Create and add the positional arg command
     let mut nth_cmd = prompt::PromptCommand::new();
     nth_cmd.starts_with= "!".to_string();
+    nth_cmd.param = "<int:n>".to_string();
     nth_cmd.help_text= "re-execute nth command from history"
 	.to_string();
     nth_cmd.callback = nth_callback;

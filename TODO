@@ -7,5 +7,6 @@ notechain - GPLv3 - A blochain-backed note taking application.
     SLOC is the result of `sloc src/`
 
 * v0.0.0-9 (19 Aug. 2024 - ???) SLOC ???
-- (2) Upgrade dependencies async-trait, cc, serde, syn tokio and others
+- (3) Add a PromptCommand param field
+- Upgrade dependencies async-trait, cc, serde, syn tokio and others
 - Start to handle nth command parameter

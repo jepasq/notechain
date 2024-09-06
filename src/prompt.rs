@@ -27,6 +27,9 @@ pub struct PromptCommand {
     pub starts_with: String,
     /// The help text associated with this command
     pub help_text: String,
+    /// A possible param text. Please note that the `create b' command do not
+    /// use this variable to print the `<data>' param in help text.
+    pub param: String,
 }
 
 impl Prompt {
@@ -52,7 +55,15 @@ use `help' command to learn more.".to_string(),
 	println!("\n{}", self.help_text);
 
 	for cmd in self.commands.iter() {
-	    println!("  {:15} {}", cmd.starts_with, cmd.help_text);
+	    if cmd.param.is_empty() {
+		println!("  {:15} {}", cmd.starts_with, cmd.help_text);
+	    }
+	    else
+	    {
+		println!("  {:4} {:10} {}", cmd.starts_with, cmd.param,
+			 cmd.help_text);
+
+	    }
 	}
 	println!("");
     }
@@ -93,6 +104,7 @@ impl PromptCommand {
 	    callback: nyi_callback,
 	    starts_with: "".to_string(),
 	    help_text: "".to_string(),
+	    param: "".to_string(),
 	}
     }
 
