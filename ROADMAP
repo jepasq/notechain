@@ -27,6 +27,7 @@ Must be saved to disk, add unit tested save and load function
 - Write it using =cargo doc --open=
 **** TODO Regular call to =cargo update= then tests and run
 :LOGBOOK:
+CLOCK: [2024-09-26 jeu. 13:02]--[2024-09-26 jeu. 13:34] =>  0:32
 CLOCK: [2024-08-19 lun. 09:36]--[2024-08-19 lun. 09:41] =>  0:05
 CLOCK: [2024-07-04 jeu. 04:21]--[2024-07-04 jeu. 04:31] =>  0:10
 CLOCK: [2024-06-10 lun. 02:49]--[2024-06-10 lun. 03:00] =>  0:11
@@ -52,7 +53,8 @@ Even if tests are actually failing
 - 04 Jul. 2024 : aes-gcm, backtrace, bitflags, cc, cfg-if etx...
 - 22 Jul. 2024 : 12 packages to latest compatible versions
 - 19 aug. 2024 : async-io, syn, bytes, cc and others
-- 6 Sep. 2024 :  async-trait, cc, serde, syn tokio and others
+- 06 Sep. 2024 : async-trait, cc, serde, syn tokio and others
+- 26 Sep. 2024 : adler and miniz_oxide removed, many other upgraded
 **** TODO Handle history
 :LOGBOOK:
 CLOCK: [2024-09-06 ven. 10:42]--[2024-09-06 ven. 10:55] =>  0:13

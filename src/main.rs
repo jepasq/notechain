@@ -230,7 +230,7 @@ pub fn hist_callback(_cmdtext: String, swarm: &Swarm<p2p::AppBehaviour>) {
 }
 
 pub fn nth_callback(cmdtext: String, swarm: &Swarm<p2p::AppBehaviour>) {
-    let hst = &swarm.behaviour().app.history;
+    let _hst = &swarm.behaviour().app.history;
     let mut s = cmdtext.clone();
     if s.len() > 0 {
 	s.remove(0); // remove first (should be '!' char)
