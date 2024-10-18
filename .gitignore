@@ -2,5 +2,7 @@
 
 *~
 
+crossterm-example/target
+
 # The example repo
 rust-blockchain-example/
