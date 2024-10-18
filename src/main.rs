@@ -298,7 +298,8 @@ async fn main() {
         .multiplex(mplex::MplexConfig::new())
         .boxed();
 
-    let behaviour = p2p::AppBehaviour::new(App::new(), response_sender, init_sender.clone()).await;
+    let behaviour = p2p::AppBehaviour::new(App::new(), response_sender,
+					   init_sender.clone()).await;
 
     let mut swarm = SwarmBuilder::new(transp, behaviour, *p2p::PEER_ID)
         .executor(Box::new(|fut| {

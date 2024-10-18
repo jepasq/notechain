@@ -55,8 +55,11 @@ Even if tests are actually failing
 - 19 aug. 2024 : async-io, syn, bytes, cc and others
 - 06 Sep. 2024 : async-trait, cc, serde, syn tokio and others
 - 26 Sep. 2024 : adler and miniz_oxide removed, many other upgraded
+- 18 Oct. 2024 : 41 packages to latest compatible versions including
+  cc, futures-*, libc, regex, wasm-* web-sys and others
 **** TODO Handle history
 :LOGBOOK:
+CLOCK: [2024-10-18 ven. 10:08]--[2024-10-18 ven. 10:37] =>  0:29
 CLOCK: [2024-09-06 ven. 10:42]--[2024-09-06 ven. 10:55] =>  0:13
 CLOCK: [2024-08-19 lun. 10:32]--[2024-08-19 lun. 10:45] =>  0:13
 CLOCK: [2024-06-10 lun. 03:38]--[2024-06-10 lun. 03:54] =>  0:16
@@ -110,11 +113,11 @@ CLOCK: [2023-04-03 lun. 13:33]--[2023-04-03 lun. 13:45] =>  0:12
   Should add the <number> helper in the help output
   - [X] Add a PromptCommand param field
   
-- [ ] Up/down arrow could be used to naigate commands
-
+- [ ] Up/down arrow could be used to navigate commands
+  - [ ] How to handle key event ?
   
-- [ ] UT still falling : *2 error while building* due to thr add of a swarm
-  parameter
+- [ ] UT build still falling : *2 error while building* due to the add of a
+  swarm parameter
   - [ ] fn poll : =expected `Poll<()>`, found `()`=
     TestableBehavior::poll should return something
     Some errors have detailed explanations: E0277, E0599.
