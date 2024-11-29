@@ -60,6 +60,7 @@ Even if tests are actually failing
   cc, futures-*, libc, regex, wasm-* web-sys and others
 - 07 Nov. 2024 : 41 packages including anyhow, bytes, cc, regex, serde_json
   tokio, url and others
+- 29 Nov. 2024 : 34 cates including libc, cc, libp2p-*, serde and many other
 **** TODO Handle history
 :LOGBOOK:
 CLOCK: [2024-10-18 ven. 11:58]--[2024-10-18 ven. 12:06] =>  0:08
