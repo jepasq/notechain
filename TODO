@@ -6,12 +6,5 @@ notechain - GPLv3 - A blochain-backed note taking application.
     Create a tag and push --tags for each revision
     SLOC is the result of `sloc src/`
 
-* v0.0.0-9 (19 Aug. 2024 - ???) SLOC ???
-- (8) Update 34 cates including libc, cc, libp2p-*, serde and many other
-- Update 41 deps including cc, regex, serde_json tokio, url and others
-- Testing crossterm example to handle arrows events
-- Upgrade more than 40 dependencies and rebuild
-- Upgrade all and remove two dependencies
-- Add a PromptCommand param field
-- Upgrade dependencies async-trait, cc, serde, syn tokio and others
-- Start to handle nth command parameter
+* v0.0.0-10 (29 Nov. 2024 - ???) SLOC ???
+
