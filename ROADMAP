@@ -27,6 +27,7 @@ Must be saved to disk, add unit tested save and load function
 - Write it using =cargo doc --open=
 **** TODO Regular call to =cargo update= then tests and run
 :LOGBOOK:
+CLOCK: [2024-12-27 ven. 10:51]--[2024-12-27 ven. 11:00] =>  0:09
 CLOCK: [2024-11-07 jeu. 09:23]--[2024-11-07 jeu. 09:33] =>  0:10
 CLOCK: [2024-09-26 jeu. 13:02]--[2024-09-26 jeu. 13:34] =>  0:32
 CLOCK: [2024-08-19 lun. 09:36]--[2024-08-19 lun. 09:41] =>  0:05
@@ -60,7 +61,8 @@ Even if tests are actually failing
   cc, futures-*, libc, regex, wasm-* web-sys and others
 - 07 Nov. 2024 : 41 packages including anyhow, bytes, cc, regex, serde_json
   tokio, url and others
-- 29 Nov. 2024 : 34 cates including libc, cc, libp2p-*, serde and many other
+- 29 Nov. 2024 : 34 crates including libc, cc, libp2p-*, serde and many other
+- 27 Dec. 2024 : 32 packages including anyhow, fastrand, syn, cc and other
 **** TODO Handle history
 :LOGBOOK:
 CLOCK: [2024-10-18 ven. 11:58]--[2024-10-18 ven. 12:06] =>  0:08
