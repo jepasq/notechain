@@ -64,11 +64,16 @@ Even if tests are actually failing
 - 29 Nov. 2024 : 34 crates including libc, cc, libp2p-*, serde and many other
 - 27 Dec. 2024 : 32 packages including anyhow, fastrand, syn, cc and other
 **** TODO Next History handling milestone(1)
-- [ ] Up/down arrow could be used to navigate commands
+:LOGBOOK:
+CLOCK: [2024-12-27 ven. 11:12]--[2024-12-27 ven. 11:28] =>  0:16
+:END:
+- [-] Up/down arrow could be used to navigate commands
   Currently testing in *crossterm-example/src/main.rs*
+  - [X] May try to upgrade croosterm version
+    27 Dec. 2024 libc updated
   - [ ] How to handle key event ? May try /crossterm/
     from https://stackoverflow.com/a/60130920
-  - [ ] May try to upgrade croosterm version
+    crossterm::event::KeyCode::Up
   - [ ] May handle all other letters to add to a string then wait for return    
     
 - [ ] UT build still falling : *2 error while building* due to the add of a

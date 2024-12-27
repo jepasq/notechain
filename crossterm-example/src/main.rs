@@ -34,12 +34,18 @@ fn main() {
                 code: KeyCode::Char('t'),
                 modifiers: KeyModifiers::ALT,
             }) => execute!(stdout, Clear(ClearType::All), Print("crossterm is cool")).unwrap(),
+	    Event::Key(KeyEvent {
+                code: KeyCode::Up,
+                modifiers: KeyModifiers::NONE,
+            }) => execute!(stdout, Clear(ClearType::CurrentLine),
+			   Print("Up pressed!")).unwrap(),
+
             Event::Key(KeyEvent {
                 code: KeyCode::Char('q'),
                 modifiers: KeyModifiers::CONTROL,
             }) => break,
             _ => (),
-        }
+	}
     }
 
     //disabling raw mode

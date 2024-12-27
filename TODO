@@ -7,5 +7,6 @@ notechain - GPLv3 - A blochain-backed note taking application.
     SLOC is the result of `sloc src/`
 
 * v0.0.1-10 (29 Nov. 2024 - ???) SLOC ???
-- (2) Close an History handling ROADMAP section and bump version to 0.0.1
+- (3) Handle UP keycode in crossterm test
+- Close an History handling ROADMAP section and bump version to 0.0.1
 - Update 32 packages including anyhow, fastrand, syn, cc and other
