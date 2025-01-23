@@ -2,7 +2,7 @@
 
 * v1.0.0
 ** v0.1.0
-*** v0.0.2
+*** TODO v0.0.2
 **** Maybe a webbased explorer ?
 **** Must attach values to each node and maybe new commands
   Commands are actually implemented in src/main.rs's main loop
@@ -25,44 +25,11 @@ Must be saved to disk, add unit tested save and load function
   If we could upgrade libp2p-noise, maybe we could fix it
 **** TODO Write and generate API documentation
 - Write it using =cargo doc --open=
-**** TODO Regular call to =cargo update= then tests and run
-:LOGBOOK:
-CLOCK: [2024-12-27 ven. 10:51]--[2024-12-27 ven. 11:00] =>  0:09
-CLOCK: [2024-11-07 jeu. 09:23]--[2024-11-07 jeu. 09:33] =>  0:10
-CLOCK: [2024-09-26 jeu. 13:02]--[2024-09-26 jeu. 13:34] =>  0:32
-CLOCK: [2024-08-19 lun. 09:36]--[2024-08-19 lun. 09:41] =>  0:05
-CLOCK: [2024-07-04 jeu. 04:21]--[2024-07-04 jeu. 04:31] =>  0:10
-CLOCK: [2024-06-10 lun. 02:49]--[2024-06-10 lun. 03:00] =>  0:11
-CLOCK: [2024-05-24 ven. 14:43]--[2024-05-24 ven. 14:56] =>  0:13
-CLOCK: [2024-05-09 jeu. 17:47]--[2024-05-09 jeu. 17:59] =>  0:12
-CLOCK: [2024-04-16 mar. 11:07]--[2024-04-16 mar. 11:15] =>  0:08
-CLOCK: [2024-03-20 mer. 06:01]--[2024-03-20 mer. 06:12] =>  0:11
-CLOCK: [2024-02-26 lun. 03:17]--[2024-02-26 lun. 03:22] =>  0:05
-CLOCK: [2024-02-05 lun. 16:02]--[2024-02-05 lun. 16:19] =>  0:17
-:END:
-Even if tests are actually failing
+**** TODO Regular call to =cargo update= then tests and run (2)
+- Even if tests are actually failing, it must build and run main binary
+  without error
 
-- 02 Nov. 2023 : window -> window-core
-- 11 Dec. 2023 : event-listener, getrandom and more
-- 05 Feb. 2024 : async-*, libc, libp2p and more
-- 26 Feb. 2024 : ahash, anyhow and more
-- 20 Mar. 2024 : anyhow, syn, futures-lite and more
-- 01 Apr. 2024 : event-listener-strategy, async-executor, async-trait and more
-- 16 Apr. 2024 : windows_*, event-listener, pest, cc, async- and more
-- 09 May 2024 : libp2p*, snow, libc and many more
-- 24 May 2024 : anyhow*, cc, libc, serde, serde_derive, syn, thiserror
-- 10 Jun. 2024 : async*, cc, regex*, serde and more
-- 04 Jul. 2024 : aes-gcm, backtrace, bitflags, cc, cfg-if etx...
-- 22 Jul. 2024 : 12 packages to latest compatible versions
-- 19 aug. 2024 : async-io, syn, bytes, cc and others
-- 06 Sep. 2024 : async-trait, cc, serde, syn tokio and others
-- 26 Sep. 2024 : adler and miniz_oxide removed, many other upgraded
-- 18 Oct. 2024 : 41 packages to latest compatible versions including
-  cc, futures-*, libc, regex, wasm-* web-sys and others
-- 07 Nov. 2024 : 41 packages including anyhow, bytes, cc, regex, serde_json
-  tokio, url and others
-- 29 Nov. 2024 : 34 crates including libc, cc, libp2p-*, serde and many other
-- 27 Dec. 2024 : 32 packages including anyhow, fastrand, syn, cc and other
+- 23 Jan. 2025 : 37 packages including cc, tustix, serde, tokio and web-sys
 **** TODO Next History handling milestone(1)
 :LOGBOOK:
 CLOCK: [2024-12-27 ven. 11:12]--[2024-12-27 ven. 11:28] =>  0:16
@@ -93,6 +60,46 @@ note: the following trait bounds were not satisfied:
 - [ ] May handle history of previous commands
   We Need a container with push_front here (either VecDeque or LinkedList)
   - [ ] Test and implement add(String) and list() functions
+**** DONE Regular call to =cargo update= then tests and run
+:LOGBOOK:
+CLOCK: [2025-01-23 jeu. 09:44]--[2025-01-23 jeu. 10:09] =>  0:25
+CLOCK: [2024-12-27 ven. 10:51]--[2024-12-27 ven. 11:00] =>  0:09
+CLOCK: [2024-11-07 jeu. 09:23]--[2024-11-07 jeu. 09:33] =>  0:10
+CLOCK: [2024-09-26 jeu. 13:02]--[2024-09-26 jeu. 13:34] =>  0:32
+CLOCK: [2024-08-19 lun. 09:36]--[2024-08-19 lun. 09:41] =>  0:05
+CLOCK: [2024-07-04 jeu. 04:21]--[2024-07-04 jeu. 04:31] =>  0:10
+CLOCK: [2024-06-10 lun. 02:49]--[2024-06-10 lun. 03:00] =>  0:11
+CLOCK: [2024-05-24 ven. 14:43]--[2024-05-24 ven. 14:56] =>  0:13
+CLOCK: [2024-05-09 jeu. 17:47]--[2024-05-09 jeu. 17:59] =>  0:12
+CLOCK: [2024-04-16 mar. 11:07]--[2024-04-16 mar. 11:15] =>  0:08
+CLOCK: [2024-03-20 mer. 06:01]--[2024-03-20 mer. 06:12] =>  0:11
+CLOCK: [2024-02-26 lun. 03:17]--[2024-02-26 lun. 03:22] =>  0:05
+CLOCK: [2024-02-05 lun. 16:02]--[2024-02-05 lun. 16:19] =>  0:17
+:END:
+
+- Past sessions :
+- 02 Nov. 2023 : window -> window-core
+- 11 Dec. 2023 : event-listener, getrandom and more
+- 05 Feb. 2024 : async-*, libc, libp2p and more
+- 26 Feb. 2024 : ahash, anyhow and more
+- 20 Mar. 2024 : anyhow, syn, futures-lite and more
+- 01 Apr. 2024 : event-listener-strategy, async-executor, async-trait and more
+- 16 Apr. 2024 : windows_*, event-listener, pest, cc, async- and more
+- 09 May 2024 : libp2p*, snow, libc and many more
+- 24 May 2024 : anyhow*, cc, libc, serde, serde_derive, syn, thiserror
+- 10 Jun. 2024 : async*, cc, regex*, serde and more
+- 04 Jul. 2024 : aes-gcm, backtrace, bitflags, cc, cfg-if etx...
+- 22 Jul. 2024 : 12 packages to latest compatible versions
+- 19 aug. 2024 : async-io, syn, bytes, cc and others
+- 06 Sep. 2024 : async-trait, cc, serde, syn tokio and others
+- 26 Sep. 2024 : adler and miniz_oxide removed, many other upgraded
+- 18 Oct. 2024 : 41 packages to latest compatible versions including
+  cc, futures-*, libc, regex, wasm-* web-sys and others
+- 07 Nov. 2024 : 41 packages including anyhow, bytes, cc, regex, serde_json
+  tokio, url and others
+- 29 Nov. 2024 : 34 crates including libc, cc, libp2p-*, serde and many other
+- 27 Dec. 2024 : 32 packages including anyhow, fastrand, syn, cc and other
+
 *** DONE v0.0.1
 **** DONE Handle history (1)
 :LOGBOOK:
