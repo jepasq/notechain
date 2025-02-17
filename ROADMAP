@@ -25,11 +25,17 @@ Must be saved to disk, add unit tested save and load function
   If we could upgrade libp2p-noise, maybe we could fix it
 **** TODO Write and generate API documentation
 - Write it using =cargo doc --open=
-**** TODO Regular call to =cargo update= then tests and run (2)
+**** TODO Regular call to =cargo update= then =test= and =run= (2)
+:LOGBOOK:
+CLOCK: [2025-02-17 lun. 10:17]--[2025-02-17 lun. 10:46] =>  0:29
+:END:
 - Even if tests are actually failing, it must build and run main binary
   without error
 
-- 23 Jan. 2025 : 37 packages including cc, tustix, serde, tokio and web-sys
+| *Date*       | *# upgraded* | *Upgraded packages (partial)*                 |
+| 23 Jan. 2025 | 37 packages  | cc, tustix, serde, tokio and web-sys and more |
+| 17 Feb. 2025 | 21 packages  | cc, sun, tempfile, ryu, serde_json and more   |
+    
 **** TODO Next History handling milestone(1)
 :LOGBOOK:
 CLOCK: [2024-12-27 ven. 11:12]--[2024-12-27 ven. 11:28] =>  0:16
