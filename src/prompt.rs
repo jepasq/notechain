@@ -17,9 +17,11 @@ type Callback = fn(String, swarm: &Swarm<p2p::AppBehaviour>);
 pub struct Prompt {
     /// The text printed at the start of each line
     #[allow(dead_code)]
-    pub text: String, 
+    pub text: String,
+    /// The introduction text printed when you launch the application
     pub intro_text: String,
     pub help_text: String,
+    /// All handled command a user can enter
     pub commands: Vec<PromptCommand>,
 }
 
@@ -32,11 +34,12 @@ pub struct PromptCommand {
     /// The help text associated with this command
     pub help_text: String,
     /// A possible param text. Please note that the `create b' command do not
-    /// use this variable to print the `<data>' param in help text.
+    /// use this variable to print the `data' param in help text.
     pub param: String,
 }
 
 impl Prompt {
+    /// Prompt constructor. Returns a new empty Prompt instance
     pub fn new() -> Self {
         Self {
 	    text:       " > ".to_string(),
@@ -51,6 +54,7 @@ use `help' command to learn more.".to_string(),
 	}
     }
 
+    /// Print the intro_text set in constructor
     pub fn intro(&self) {
 	println!("{}\n", self.intro_text);
     }

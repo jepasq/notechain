@@ -24,6 +24,9 @@ Must be saved to disk, add unit tested save and load function
   It's due to snow v0.8 that is an indirect dependency of libp2p-noise v0.32
   If we could upgrade libp2p-noise, maybe we could fix it
 **** TODO Write and generate API documentation
+:LOGBOOK:
+CLOCK: [2025-02-18 mar. 10:03]--[2025-02-18 mar. 10:20] =>  0:17
+:END:
 - Write it using =cargo doc --open=
 **** TODO Regular call to =cargo update= then =test= and =run= (2)
 :LOGBOOK:
