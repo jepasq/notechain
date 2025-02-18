@@ -2,7 +2,11 @@
 
 use libp2p::{
     swarm::Swarm,
+    swarm::NetworkBehaviour
 };
+
+use futures::executor::block_on;
+//use futures::future::FutureExt;
 
 use super::*;
 
@@ -192,6 +196,10 @@ mod tests {
 	    Poll::Ready(())
 	}
     }
+
+    impl NetworkBehaviour for TestableBehaviour {
+	// implémente les méthodes requises ici
+    }    
     /*
     impl Future<Output = TestableBehaviour> for TestableBehaviour {
 
@@ -218,8 +226,8 @@ mod tests {
             .boxed();
 
 	// May add await() at the end if fn is async
-	let behaviour = TestableBehaviour::new(response_sender,
-					       init_sender.clone());
+	let behaviour = block_on(TestableBehaviour::new(response_sender,
+					       init_sender.clone()));
 
 	let mut swarm = SwarmBuilder::new(transp, behaviour, *p2p::PEER_ID)
         .executor(Box::new(|fut| {

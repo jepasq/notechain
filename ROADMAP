@@ -38,6 +38,7 @@ CLOCK: [2025-02-17 lun. 10:17]--[2025-02-17 lun. 10:46] =>  0:29
     
 **** TODO Next History handling milestone(1)
 :LOGBOOK:
+CLOCK: [2025-02-18 mar. 09:36]--[2025-02-18 mar. 09:48] =>  0:12
 CLOCK: [2024-12-27 ven. 11:12]--[2024-12-27 ven. 11:28] =>  0:16
 :END:
 - [-] Up/down arrow could be used to navigate commands
@@ -51,6 +52,8 @@ CLOCK: [2024-12-27 ven. 11:12]--[2024-12-27 ven. 11:28] =>  0:16
     
 - [ ] UT build still falling : *2 error while building* due to the add of a
   swarm parameter
+  - [ ] Trying to fix it making get_fake_swarm() return a TestableBehaviour
+    and not a future (tried both await and future::on_block
   - [ ] fn poll : =expected `Poll<()>`, found `()`=
     TestableBehavior::poll should return something
     Some errors have detailed explanations: E0277, E0599.

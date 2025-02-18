@@ -2105,6 +2105,7 @@ name = "notechain"
 version = "0.1.0"
 dependencies = [
  "chrono",
+ "futures",
  "hex",
  "libp2p",
  "log",
