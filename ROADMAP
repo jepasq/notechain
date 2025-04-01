@@ -44,6 +44,7 @@ CLOCK: [2025-02-17 lun. 10:17]--[2025-02-17 lun. 10:46] =>  0:29
     
 **** TODO Next History handling milestone(1)
 :LOGBOOK:
+CLOCK: [2025-04-01 mar. 10:52]--[2025-04-01 mar. 10:55] =>  0:03
 CLOCK: [2025-02-18 mar. 09:36]--[2025-02-18 mar. 09:48] =>  0:12
 CLOCK: [2024-12-27 ven. 11:12]--[2024-12-27 ven. 11:28] =>  0:16
 :END:
@@ -54,6 +55,7 @@ CLOCK: [2024-12-27 ven. 11:12]--[2024-12-27 ven. 11:28] =>  0:16
   - [ ] How to handle key event ? May try /crossterm/
     from https://stackoverflow.com/a/60130920
     crossterm::event::KeyCode::Up
+  - [ ] Must also update this test project regularly  
   - [ ] May handle all other letters to add to a string then wait for return    
     
 - [ ] UT build still falling : *2 error while building* due to the add of a

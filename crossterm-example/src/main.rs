@@ -21,7 +21,8 @@ fn main() {
     loop {
         //going to top left corner
         execute!(stdout, cursor::MoveTo(0, 0)).unwrap();
-
+	let mut actual_prompt = "";
+	
         //matching the key
         match read().unwrap() {
             //i think this speaks for itself
@@ -44,6 +45,14 @@ fn main() {
                 code: KeyCode::Char('q'),
                 modifiers: KeyModifiers::CONTROL,
             }) => break,
+
+	    // Gérer toutes les autres touches
+	    Event::Key(KeyEvent {
+		code: KeyCode::Char(c),
+		modifiers: KeyModifiers::NONE,
+	    }) => execute!(stdout, Print(format!("Touche '{}' pressée", c)))
+		.unwrap(),
+	    
             _ => (),
 	}
     }
