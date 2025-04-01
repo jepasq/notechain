@@ -1,3 +1,13 @@
+* v0.0.1-10 (29 Nov. 2024 - 01 Apr. 2025) SLOC 1,004
+- Handle all other keys in crossterm example
+- Upgrade 60+ dependencies
+- Slightly improve Prompt API documentation
+- Trying to make get_fake_swarm return an objet using futures's block_on
+- New deps update and first related ROADMAP section closed
+- Handle UP keycode in crossterm test
+- Close an History handling ROADMAP section and bump version to 0.0.1
+- Update 32 packages including anyhow, fastrand, syn, cc and other
+
 * v0.0.0-9 (19 Aug. 2024 - 29 Nov. 2024) SLOC 992
 - Update 34 crates including libc, cc, libp2p-*, serde and many other
 - Update 41 deps including cc, regex, serde_json tokio, url and others

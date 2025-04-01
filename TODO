@@ -6,12 +6,5 @@ notechain - GPLv3 - A blochain-backed note taking application.
     Create a tag and push --tags for each revision
     SLOC is the result of `sloc src/`
 
-* v0.0.1-10 (29 Nov. 2024 - ???) SLOC ???
-- (8) Handle all other keys in crossterm example
-- Upgrade 60+ dependencies
-- Slightly improve Prompt API documentation
-- Trying to make get_fake_swarm return an objet using futures's block_on
-- New deps update and first related ROADMAP section closed
-- Handle UP keycode in crossterm test
-- Close an History handling ROADMAP section and bump version to 0.0.1
-- Update 32 packages including anyhow, fastrand, syn, cc and other
+* v0.0.1-11 (01 Apr. 2025 - ???) SLOC ?,???
+
