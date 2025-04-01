@@ -30,14 +30,17 @@ CLOCK: [2025-02-18 mar. 10:03]--[2025-02-18 mar. 10:20] =>  0:17
 - Write it using =cargo doc --open=
 **** TODO Regular call to =cargo update= then =test= and =run= (2)
 :LOGBOOK:
+CLOCK: [2025-04-01 mar. 09:56]--[2025-04-01 mar. 10:34] =>  0:38
 CLOCK: [2025-02-17 lun. 10:17]--[2025-02-17 lun. 10:46] =>  0:29
 :END:
 - Even if tests are actually failing, it must build and run main binary
   without error
 
-| *Date*       | *# upgraded* | *Upgraded packages (partial)*                 |
-| 23 Jan. 2025 | 37 packages  | cc, tustix, serde, tokio and web-sys and more |
-| 17 Feb. 2025 | 21 packages  | cc, sun, tempfile, ryu, serde_json and more   |
+| *Date*       | *# upgraded* | *Upgraded packages (partial)*                  |
+| 23 Jan. 2025 | 37 packages  | cc, tustix, serde, tokio and web-sys and more  |
+| 17 Feb. 2025 | 21 packages  | cc, sun, tempfile, ryu, serde_json and more    |
+| 01 Apr. 2025 | 64 packages  | cc, pest, log, async*, anyhow, serde* and more |
+|              |              |                                                |
     
 **** TODO Next History handling milestone(1)
 :LOGBOOK:
