@@ -44,6 +44,7 @@ CLOCK: [2025-02-17 lun. 10:17]--[2025-02-17 lun. 10:46] =>  0:29
     
 **** TODO Next History handling milestone(1)
 :LOGBOOK:
+CLOCK: [2025-04-02 mer. 11:54]--[2025-04-02 mer. 12:16] =>  0:22
 CLOCK: [2025-04-01 mar. 10:52]--[2025-04-01 mar. 10:55] =>  0:03
 CLOCK: [2025-02-18 mar. 09:36]--[2025-02-18 mar. 09:48] =>  0:12
 CLOCK: [2024-12-27 ven. 11:12]--[2024-12-27 ven. 11:28] =>  0:16
@@ -52,11 +53,13 @@ CLOCK: [2024-12-27 ven. 11:12]--[2024-12-27 ven. 11:28] =>  0:16
   Currently testing in *crossterm-example/src/main.rs*
   - [X] May try to upgrade croosterm version
     27 Dec. 2024 libc updated
-  - [ ] How to handle key event ? May try /crossterm/
+  - [X] How to handle key event ? May try /crossterm/
     from https://stackoverflow.com/a/60130920
     crossterm::event::KeyCode::Up
+  - [X] May handle all other letters to add to a string then wait for return    
   - [ ] Must also update this test project regularly  
-  - [ ] May handle all other letters to add to a string then wait for return    
+  - [ ] Make this test API-compatible with actual prompt
+    - [ ] Must handle enter key
     
 - [ ] UT build still falling : *2 error while building* due to the add of a
   swarm parameter

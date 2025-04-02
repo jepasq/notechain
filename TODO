@@ -7,4 +7,4 @@ notechain - GPLv3 - A blochain-backed note taking application.
     SLOC is the result of `sloc src/`
 
 * v0.0.1-11 (01 Apr. 2025 - ???) SLOC ?,???
-
+- (1) Handle actual_command as String in crossterm example subproject
